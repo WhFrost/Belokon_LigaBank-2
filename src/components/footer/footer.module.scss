@@ -1,0 +1,178 @@
+.footer {
+  background-color: #f6f7ff;
+}
+
+.footer__wrapper {
+  display: flex;
+  padding-top: 49px;
+  padding-bottom: 60px;
+}
+
+.footer__address-wrapper {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  max-width: 252px;
+  margin-right: 81px;
+}
+
+.footer__address,
+.footer__copyright {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 17px;
+  color: #707c87;
+  font-style: normal;
+}
+
+.footer__address {
+  padding-top: 16px;
+}
+
+.footer__nav {
+  flex-shrink: 0;
+  max-width: 145px;
+  margin-right: 82px;
+  padding-top: 7px;
+}
+
+.footer__nav-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__nav-item:not(:last-child) {
+  padding-bottom: 9px;
+}
+
+.footer__nav-link {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1f1e25;
+  font-style: normal;
+}
+
+.footer__nav-link:hover {
+  color: #2c36f2;
+
+  opacity: 0.9;
+
+  transition: opacity 0.3s;
+}
+
+.footer__nav-link:active {
+  color: #2c36f2;
+
+  opacity: 0.7;
+
+  transition: opacity 0.3s;
+}
+
+.footer__phones-wrapper {
+  width: 431px;
+  margin-right: 78px;
+  padding-top: 10px;
+}
+
+.footer__phones-list {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.footer__phones-item {
+  max-width: 196px;
+}
+
+.footer__phones-item:first-child {
+  margin-right: 79px;
+}
+
+.footer__phones-item--mobile::before {
+  content: url('../../assets/img/mobile-phone.svg');
+
+  width: 10px;
+  height: 16px;
+  margin-right: 17px;
+}
+
+.footer__phones-item--city::before {
+  content: url('../../assets/img/phone.svg');
+
+  width: 16px;
+  height: 16px;
+  margin-right: 16px;
+}
+
+.footer__phones-link {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1f1e25;
+}
+
+.footer__phones-link:hover {
+  color: #2c36f2;
+
+  opacity: 0.9;
+
+  transition: opacity 0.3s;
+}
+
+.footer__phones-link:active {
+  color: #2c36f2;
+
+  opacity: 0.7;
+
+  transition: opacity 0.3s;
+}
+
+.footer__phones-desc {
+  width: 167px;
+  margin-left: 29px;
+
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 17px;
+  color: #707c87;
+  font-style: normal;
+}
+
+.footer__socials {
+  padding-top: 12px;
+}
+
+.footer__socials-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 102px;
+}
+
+.footer__socials-item {
+  flex-shrink: 0;
+  max-width: 102px;
+}
+
+.footer__socials-item:not(:last-child) {
+  margin-right: 15px;
+}
+
+.footer__socials-link {
+  display: inline-block;
+
+  opacity: 1;
+
+  transition: opacity 0.3s;
+}
+
+.footer__socials-link:hover {
+  opacity: 0.9;
+
+  transition: opacity 0.3s;
+}
+
+.footer__socials-link:active {
+  opacity: 0.5;
+
+  transition: opacity 0.3s;
+}
