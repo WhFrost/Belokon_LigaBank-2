@@ -1,13 +1,18 @@
 import React from 'react';
-import Logo from '../logo/logo';
-import styles from './footer.module.scss';
+import PropTypes from 'prop-types';
+import {nanoid} from 'nanoid';
 import globalStyles from '../app/app.module.scss';
+import styles from './footer.module.scss';
+import Logo from '../logo/logo';
+import FooterNavItem from '../footer-nav-item/footer-nav-item';
 import facebook from '../../assets/img/facebook.svg';
 import instagram from '../../assets/img/instagram.svg';
 import twitter from '../../assets/img/twitter.svg';
 import youtube from '../../assets/img/youtube.svg';
 
-function Footer() {
+function Footer(props) {
+  const {footerNavItems} = props;
+
   return (
     <footer className={styles['footer']}>
       <div
@@ -22,27 +27,8 @@ function Footer() {
           <p className={styles['footer__copyright']}>Ⓒ Лига Банк, 2019</p>
         </div>
         <div className={styles['footer__nav']}>
-          <ul className={styles['footer__nav-list']}>
-            <li className={styles['footer__nav-item']}>
-              <a href='/' className={styles['footer__nav-link']}>
-                Услуги
-              </a>
-            </li>
-            <li className={styles['footer__nav-item']}>
-              <a href='/' className={styles['footer__nav-link']}>
-                Рассчитать кредит
-              </a>
-            </li>
-            <li className={styles['footer__nav-item']}>
-              <a href='/' className={styles['footer__nav-link']}>
-                Контакты
-              </a>
-            </li>
-            <li className={styles['footer__nav-item']}>
-              <a href='/' className={styles['footer__nav-link']}>
-                Задать вопрос
-              </a>
-            </li>
+          <ul className={`${globalStyles['list']} ${styles['footer__nav-list']}`}>
+            {footerNavItems.map((item) => <FooterNavItem key={nanoid()} title={item.title} link={item.link} />)}
           </ul>
         </div>
         <div className={styles['footer__phones-wrapper']}>

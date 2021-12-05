@@ -12,29 +12,29 @@
   font-size: 16px;
   line-height: 19px;
   font-style: normal;
-}
 
-.user-nav-item__link::before {
-  content: url('../../assets/img/login.svg');
+  &::before {
+    content: url('../../assets/img/login.svg');
 
-  display: inline-block;
-  width: 20px;
-  height: 22px;
-  margin-right: 10px;
-}
+    display: inline-block;
+    width: 20px;
+    height: 22px;
+    margin-right: 10px;
+  }
 
-.user-nav-item__link:hover {
-  color: #2c36f2;
+  &:hover {
+    color: #2c36f2;
 
-  opacity: 0.9;
+    opacity: 0.9;
 
-  transition: opacity 0.3s;
-}
+    transition: opacity 0.3s;
+  }
 
-.user-nav-item__link:active {
-  color: #2c36f2;
+  &:active {
+    color: #2c36f2;
 
-  opacity: 0.7;
+    opacity: 0.7;
 
-  transition: opacity 0.3s;
+    transition: opacity 0.3s;
+  }
 }
