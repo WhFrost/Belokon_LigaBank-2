@@ -1,0 +1,105 @@
+.features {
+  margin-bottom: 110px;
+}
+
+.features__wrapper {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+}
+
+.features__nav {
+  grid-column: span 2;
+}
+
+.features__nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.features__nav-item {
+  flex-grow: 1;
+}
+
+.features__nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 94px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  font-style: normal;
+
+  &--deposits {
+    &::before {
+      content: '';
+
+      width: 34px;
+      height: 33px;
+      margin-right: 10px;
+
+      background: url('../../assets/img/deposits-icon.svg') no-repeat;
+    }
+  }
+
+  &--credits {
+    &::before {
+      content: '';
+
+      width: 34px;
+      height: 30px;
+      margin-right: 10px;
+
+      background: url('../../assets/img/credits-icon.svg') no-repeat;
+    }
+  }
+
+  &--insurance {
+    &::before {
+      content: '';
+
+      width: 28px;
+      height: 34px;
+      margin-right: 10px;
+
+      background: url('../../assets/img/insurance-icon.svg') no-repeat;
+    }
+  }
+
+  &--online-services {
+    &::before {
+      content: '';
+
+      width: 20px;
+      height: 34px;
+      margin-right: 10px;
+
+      background: url('../../assets/img/online-services-icon.svg') no-repeat;
+    }
+  }
+
+  &:hover,
+  &--active {
+    background-color: #f6f7ff;
+  }
+}
+
+.features__content-wrapper {
+  display: grid;
+  padding-top: 60px;
+  padding-right: 70px;
+  padding-bottom: 60px;
+  padding-left: 70px;
+
+  column-gap: 175px;
+
+  background-color: #f6f7ff;
+
+  grid-template-columns: 410px 585px;
+}

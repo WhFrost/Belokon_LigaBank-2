@@ -7,7 +7,6 @@ import {nanoid} from 'nanoid';
 
 function SiteNav(props) {
   const {headerNavItems} = props;
-  console.log(headerNavItems);
 
   return (
     <ul className={`${globalStyles['list']} ${styles['site-nav__list']}`}>
