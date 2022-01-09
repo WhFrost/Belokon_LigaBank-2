@@ -146,6 +146,50 @@ const FEATURES = [
    ONLINE_SERVICES: 'Онлайн-сервисы',
  };
 
+ const API_KEY = 'AIzaSyDmFVI-aAevCd3zJtrq-Tq1RetDLZ4cDy0';
+ const MAP_PINS = [
+   {
+     city: 'moscow',
+     coords: {
+       lat: 55.6034448,
+       lng: 36.9422362,
+     }
+   },
+   {
+     city: 'saratov',
+     coords: {
+       lat: 51.5317097,
+       lng: 45.8568217,
+     }
+   },
+   {
+     city: 'kazan',
+     coords: {
+       lat: 55.7956149,
+       lng: 48.9332218,
+     }
+   },
+   {
+     city: 'tumen',
+     coords: {
+       lat: 57.1428753,
+       lng: 65.4068769,
+     }
+   },
+   {
+     city: 'omsk',
+     coords: {
+       lat: 54.9859925,
+       lng: 73.2160576,
+     }
+   },
+ ];
+ const DEFAULT_MAP_LAT = 56.5238661;
+ const DEFAULT_MAP_LNG = 57.1238747;
+ const DEFAULT_MAP_ZOOM = 5.4;
+ const MAP_WIDTH = '1170px';
+ const MAP_HEIGHT = '462px';
+
  export {
    HEADER_NAV_ITEMS,
    USER_NAV_ITEMS,
@@ -153,4 +197,11 @@ const FEATURES = [
    FOOTER_NAV_ITEMS,
    FEATURES,
    TabsNames,
+   API_KEY,
+   DEFAULT_MAP_LAT,
+   DEFAULT_MAP_LNG,
+   MAP_PINS,
+   DEFAULT_MAP_ZOOM,
+   MAP_WIDTH,
+   MAP_HEIGHT,
  }
