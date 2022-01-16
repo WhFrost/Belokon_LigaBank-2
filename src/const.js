@@ -2,14 +2,14 @@ import facebook from './assets/img/facebook.svg';
 import instagram from './assets/img/instagram.svg';
 import twitter from './assets/img/twitter.svg';
 import youtube from './assets/img/youtube.svg';
-import depositsImage from './assets/img/deposits@1x.png';
-import depositsRetinaImage from './assets/img/deposits@2x.png';
-import creditsImage from './assets/img/credits@1x.png';
-import creditsRetinaImage from './assets/img/credits@2x.png';
-import insuranceImage from './assets/img/insurance@1x.png';
-import insuranceRetinaImage from './assets/img/insurance@2x.png';
-import onlineServicesImage from './assets/img/online-services@1x.png';
-import onlineServicesRetinaImage from './assets/img/online-services@2x.png';
+import depositsImage from './assets/img/deposits@1x.jpg';
+import depositsRetinaImage from './assets/img/deposits@2x.jpg';
+import creditsImage from './assets/img/credits@1x.jpg';
+import creditsRetinaImage from './assets/img/credits@2x.jpg';
+import insuranceImage from './assets/img/insurance@1x.jpg';
+import insuranceRetinaImage from './assets/img/insurance@2x.jpg';
+import onlineServicesImage from './assets/img/online-services@1x.jpg';
+import onlineServicesRetinaImage from './assets/img/online-services@2x.jpg';
 
 
 const HEADER_NAV_ITEMS = [
