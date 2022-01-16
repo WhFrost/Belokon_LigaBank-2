@@ -4,13 +4,6 @@
 
 .features__wrapper {
   display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, auto);
-}
-
-.features__nav {
-  grid-column: span 2;
 }
 
 .features__nav-list {
@@ -96,8 +89,6 @@
   padding-right: 70px;
   padding-bottom: 60px;
   padding-left: 70px;
-
-  column-gap: 175px;
 
   background-color: #f6f7ff;
 

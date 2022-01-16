@@ -1,0 +1,42 @@
+.slider {
+  position: relative;
+
+  min-height: 400px;
+  margin-bottom: 60px;
+}
+
+.slider__controls {
+  position: absolute;
+  right: 50%;
+  bottom: 42px;
+  left: 50%;
+  z-index: 10;
+
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  border: none;
+}
+
+
+.slider__label-control:not(:last-child) {
+  display: block;
+  margin-right: 8px;
+}
+
+.slider__indicator::before {
+  content: '';
+
+  display: block;
+  width: 8px;
+  height: 8px;
+
+  background-color: #2028b6;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider__control:checked + .slider__indicator::before {
+  background-color: #f6f7ff;
+}

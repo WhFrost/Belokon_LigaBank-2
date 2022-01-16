@@ -184,9 +184,9 @@ const FEATURES = [
      }
    },
  ];
- const DEFAULT_MAP_LAT = 56.5238661;
+ const DEFAULT_MAP_LAT = 56.2238661;
  const DEFAULT_MAP_LNG = 57.1238747;
- const DEFAULT_MAP_ZOOM = 5.4;
+ const DEFAULT_MAP_ZOOM = 5.2;
  const MAP_WIDTH = '1170px';
  const MAP_HEIGHT = '462px';
 

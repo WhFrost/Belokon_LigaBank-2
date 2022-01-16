@@ -64,10 +64,9 @@ body {
     display: grid;
     min-height: 100vh;
 
-    grid-template-rows: auto repeat(4, 1fr) auto;
+    grid-template-rows: auto 1fr auto;
   }
 }
-
 
 .container {
   box-sizing: border-box;
