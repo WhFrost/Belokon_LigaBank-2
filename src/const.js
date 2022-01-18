@@ -31,13 +31,6 @@ const HEADER_NAV_ITEMS = [
   },
 ];
 
-const USER_NAV_ITEMS = [
-  {
-    title: 'Войти в Интернет-банк',
-    link: '#',
-  },
-];
-
 const COMPANY_INFO = {
   address: '150015, г. Москва, ул. Московская, д. 32',
   license: 'Генеральная лицензия Банка России №1050',
@@ -192,7 +185,6 @@ const FEATURES = [
 
  export {
    HEADER_NAV_ITEMS,
-   USER_NAV_ITEMS,
    COMPANY_INFO,
    FOOTER_NAV_ITEMS,
    FEATURES,

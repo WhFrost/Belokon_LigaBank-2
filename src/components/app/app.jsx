@@ -1,6 +1,7 @@
 import React from 'react';
 import globalStyles from './app.module.scss';
 import Header from '../header/header';
+import LoginPopup from '../login-popup/login-popup';
 import Slider from '../slider/slider';
 import FirstSlide from '../slide-1/slide-1';
 import SecondSlide from '../slide-2/slide-2';
@@ -9,26 +10,28 @@ import Features from '../features/features';
 import CreditCalc from '../credit-calc/credit-calc';
 import Map from '../map/map';
 import Footer from '../footer/footer';
+import {useSelector} from 'react-redux';
+import {getViewLoginPopupStatus} from '../../store/user/selectors';
 import {
   HEADER_NAV_ITEMS,
-  USER_NAV_ITEMS,
   FOOTER_NAV_ITEMS,
   COMPANY_INFO,
   MAP_PINS
 } from '../../const';
 
 function App() {
+  const viewLoginPopupStatus = useSelector(getViewLoginPopupStatus);
 
   return (
     <>
       <Header
         headerNavItems={HEADER_NAV_ITEMS}
-        userNavItems={USER_NAV_ITEMS}
       />
       <main>
         <h1 className={globalStyles['visually-hidden']}>
           Страница сайта Лига Банк
         </h1>
+        {viewLoginPopupStatus && <LoginPopup />}
         <Slider
           firstSlide={FirstSlide}
           secondSlide={SecondSlide}
