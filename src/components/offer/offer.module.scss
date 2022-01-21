@@ -1,0 +1,50 @@
+.offer {
+  align-self: start;
+  min-width: 500px;
+  padding-top: 60px;
+  padding-right: 60px;
+  padding-bottom: 60px;
+  padding-left: 58px;
+
+  background-color: #f6f7ff;
+}
+.offer__title {
+  margin-bottom: 40px;
+
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 31px;
+  text-align: left;
+  font-style: normal;
+
+  grid-column: span 2;
+}
+
+.offer__details {
+  display: grid;
+  margin: 0;
+
+  column-gap: 50px;
+
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 40px;
+}
+
+.offer__item-value {
+  margin: 0;
+  margin-bottom: 15px;
+
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 31px;
+  color: #1f1e25;
+  font-style: normal;
+}
+
+.offer__item-name {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #394959;
+  font-style: normal;
+}

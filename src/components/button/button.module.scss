@@ -94,4 +94,36 @@
       opacity: 1.0;
     }
   }
+
+  &--dec {
+    content: '-';
+    position: absolute;
+    top: 77px;
+    left: 20px;
+
+    width: 16px;
+
+    background-color: #1f1e25;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1.0;
+    }
+  }
+
+  &--inc {
+    position: absolute;
+    top: 69px;
+    right: 20px;
+
+    width: 16px;
+    height: 16px;
+
+    background: url('../../assets/img/plus.svg') no-repeat;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1.0;
+    }
+  }
 }

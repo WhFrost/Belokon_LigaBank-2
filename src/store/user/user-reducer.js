@@ -42,7 +42,7 @@ const userReducer = (state = initialState, action) => {
         ...state,
         password: action.payload,
       }
-    case ActionType.CLEAR_DATA:
+    case ActionType.CLEAR_USER_DATA:
       return {
         LoginPopupViewStatus: false,
         isLogin: false,

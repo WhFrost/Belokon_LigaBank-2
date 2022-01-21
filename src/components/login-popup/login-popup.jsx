@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useRef, useEffect} from 'react';
 import globalStyles from '../app/app.module.scss';
 import styles from './login-popup.module.scss';
 import Logo from '../logo/logo';
@@ -46,6 +46,14 @@ function LoginPopup(props) {
     };
   });
 
+  const passwordRef = useRef(null);
+
+  const handleShowPassword = () => {
+    passwordRef.current.type === 'password'
+      ? passwordRef.current.type = 'text'
+      : passwordRef.current.type = 'password';
+  };
+
   return (
     <section className={styles['login']}>
       <div className={styles['login__wrapper']}>
@@ -78,10 +86,13 @@ function LoginPopup(props) {
                 className={`${styles['login__field']} ${styles['login__field--password']} `}
                 id='password'
                 required
+                ref={passwordRef}
                 onChange={onPasswordChange}
               />
               <Button
                 modificator={'show-password'}
+                onMouseDown={handleShowPassword}
+                onMouseUp={handleShowPassword}
               />
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a href="#" className={`${globalStyles['link']} ${styles['login__recovery-password']}`}>

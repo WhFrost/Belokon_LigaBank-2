@@ -3,10 +3,137 @@
 }
 
 .credit-calc__wrapper {
-  display: flex;
+  display: grid;
+
+  column-gap: 70px;
+
+  grid-template-columns: 1fr auto;
 }
 
 .credit-calc__title {
   margin-bottom: 70px;
+
+  grid-column: span 2;
+
+  &--step {
+    margin-bottom: 30px;
+
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 31px;
+    text-align: left;
+    font-style: normal;
+  }
+}
+.credit-calc__form-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
 }
 
+.credit-calc__field-wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.credit-calc__field-label {
+  margin-bottom: 15px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: left;
+  color: #394959;
+  font-style: normal;
+}
+
+.credit-calc__field {
+  margin-bottom: 10px;
+  padding-top: 25px;
+  padding-bottom: 24px;
+
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  font-style: normal;
+
+  border: 1px solid #1f1e25;
+  border-radius: 4px;
+  ;
+
+  &--target {
+    margin-bottom: 40px;
+    padding-right: 26px;
+    padding-left: 24px;
+
+    font-size: 16px;
+    line-height: 22px;
+    text-align: left;
+  }
+}
+
+.credit-calc__field--cost::-webkit-outer-spin-button,
+.credit-calc__field--cost::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.credit-calc__range-label-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.credit-calc__range-label {
+  margin-bottom: 30px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: left;
+  color: #707c87;
+  font-style: normal;
+}
+
+.credit-calc__checkbox-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.credit-calc__checkbox-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1f1e25;
+  font-style: normal;
+}
+
+.credit-calc__checkbox-label::before {
+  content: '';
+
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  margin-right: 8px;
+
+  border: 1px solid #2c36f2;
+  border-radius: 2px;
+}
+
+.credit-calc__checkbox:checked + .credit-calc__checkbox-label::before {
+  background: url('../../assets/img/checked.svg') no-repeat;
+  background-color: #2c36f2;
+  background-position: center;
+}
+
+.credit-calc__checkbox:not(:disabled):not(:checked) + .credit-calc__checkbox-label:hover::before {
+  background: url('../../assets/img/checked.svg') no-repeat;
+  background-color: #2c36f2;
+  background-position: center;
+  opacity: 0.4;
+}

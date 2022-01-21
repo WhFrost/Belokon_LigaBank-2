@@ -16,7 +16,7 @@ function FeatureCredits(props) {
         <FeaturePromo promo={promo}/>
         <FeatureList features={features} />
         <p className={styles['feature-credits__text']}>
-          Рассчитайте ежемесячный платеж и ставку по кредиту воспользовавшись нашим
+          Рассчитайте ежемесячный платеж и ставку по кредиту воспользовавшись нашим{' '}
           <a href="#" className={`${globalStyles['link']} ${styles['feature-credits__text-link']}`}>
             <span>кредитным калькулятором</span>
           </a>
