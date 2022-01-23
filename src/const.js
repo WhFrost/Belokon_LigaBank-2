@@ -211,6 +211,20 @@ const MAX_PERCENT_RATE_FOR_AUTO = 16;
 const MIN_PERCENT_MOD_RATE_FOR_AUTO = 3.5;
 const MAX_PERCENT_MOD_RATE_FOR_AUTO = 8.5;
 
+const MIN_MORTGAGE_CREDIT_SUM = 500000;
+const MIN_AUTO_CREDIT_SUM = 200000;
+
+const DeclensionRub = [
+  'рубль',
+  'рубля',
+  'рублей',
+];
+const DeclensionYears = [
+  'год',
+  'года',
+  'лет',
+];
+
 export {
   HEADER_NAV_ITEMS,
   COMPANY_INFO,
@@ -248,5 +262,9 @@ export {
   MIN_PERCENT_RATE_FOR_AUTO,
   MAX_PERCENT_RATE_FOR_AUTO,
   MIN_PERCENT_MOD_RATE_FOR_AUTO,
-  MAX_PERCENT_MOD_RATE_FOR_AUTO
+  MAX_PERCENT_MOD_RATE_FOR_AUTO,
+  DeclensionRub,
+  DeclensionYears,
+  MIN_MORTGAGE_CREDIT_SUM,
+  MIN_AUTO_CREDIT_SUM
 };

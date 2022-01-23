@@ -10,6 +10,7 @@ const getUseInsuranceAuto = (state) => state.calc.useInsuranceAuto;
 const getUseInsuranceLife = (state) => state.calc.useInsuranceLife;
 const getTotalCost = (state) => state.calc.totalCost;
 const getPercentRate = (state) => state.calc.percentRate;
+const getOfferStatus = (state) => state.calc.isOfferValid;
 
 export {
   getCreditTarget,
@@ -23,5 +24,6 @@ export {
   getUseInsuranceAuto,
   getUseInsuranceLife,
   getTotalCost,
-  getPercentRate
+  getPercentRate,
+  getOfferStatus
 }

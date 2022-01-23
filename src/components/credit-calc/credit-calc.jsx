@@ -12,10 +12,10 @@ import {
   MAX_TERM_MORTGAGE,
   MIN_TERM_AUTO,
   MAX_TERM_AUTO,
-  STEP_COST_MORTGAGE,
-  STEP_COST_AUTO,
   STEP_FIRST_PAYMENT_RANGE,
-  STEP_TERM_RANGE
+  STEP_TERM_RANGE,
+  DeclensionRub,
+  DeclensionYears
 } from '../../const';
 import {nanoid} from 'nanoid';
 import {connect} from 'react-redux';
@@ -34,6 +34,7 @@ import {
 import {ActionCreator} from '../../store/action';
 import Button from '../button/button';
 import Offer from '../offer/offer';
+import {getWordDeclension} from '../../utils';
 
 function CreditCalc (props) {
   const {
@@ -57,8 +58,6 @@ function CreditCalc (props) {
     onInsuranceAutoChange,
     onInsuranceLifeChange
   } = props;
-
-  console.log(typeof term);
 
   return (
     <section className={styles['credit-calc']} id='credit-calc'>
@@ -97,13 +96,10 @@ function CreditCalc (props) {
                         Стоимость {creditTarget === 'MORTGAGE' ? 'недвижимости' : 'автомобиля'}
                       </label>
                       <input
-                        type="number"
+                        type="text"
                         id="cost"
                         className={`${styles['credit-calc__field']} ${styles['credit-calc__field--cost']}`}
-                        value={costTarget}
-                        min={creditTarget === 'MORTGAGE' ? MIN_COST_MORTGAGE : MIN_COST_AUTO}
-                        max={creditTarget === 'MORTGAGE' ? MAX_COST_MORTGAGE : MAX_COST_AUTO}
-                        step={creditTarget === 'MORTGAGE' ? STEP_COST_MORTGAGE : STEP_COST_AUTO}
+                        value={`${costTarget} ${getWordDeclension(costTarget, DeclensionRub)}`}
                         onChange={onCostChange}
                       />
                       <Button
@@ -126,12 +122,10 @@ function CreditCalc (props) {
                         Первоначальный взнос
                       </label>
                       <input
-                        type="number"
+                        type="text"
                         id="first-payment"
                         className={styles['credit-calc__field']}
-                        min={minFirstPayment}
-                        max={maxFirstPayment}
-                        value={firstPayment}
+                        value={`${firstPayment} ${getWordDeclension(firstPayment, DeclensionRub)}`}
                         onChange={onFirstPaymentChange}
                       />
                       <input
@@ -147,14 +141,14 @@ function CreditCalc (props) {
                         Срок кредитования
                       </label>
                       <input
-                        type="number"
+                        type="string"
                         id="term"
                         className={styles['credit-calc__field']}
                         min={creditTarget === 'MORTGAGE' ? MIN_TERM_MORTGAGE : MIN_TERM_AUTO}
                         max={creditTarget === 'MORTGAGE' ? MAX_TERM_MORTGAGE : MAX_TERM_AUTO}
-                        value={term}
+                        value={`${term} ${getWordDeclension(term, DeclensionYears)}`}
                         onChange={onTermChange}
-                      />
+                        />
                       <input
                         type="range"
                         min={creditTarget === 'MORTGAGE' ? MIN_TERM_MORTGAGE : MIN_TERM_AUTO}
@@ -252,7 +246,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.setPercentRate())
   },
   onCostChange(evt) {
-    dispatch(ActionCreator.setCostTarget(Number(evt.target.value)));
+    dispatch(ActionCreator.setCostTarget(Number(evt.target.value.replace(/\D/g, ''))));
     dispatch(ActionCreator.setMinFirstPayment());
     dispatch(ActionCreator.setMaxFirstPayment());
     dispatch(ActionCreator.setFirstPayment());
@@ -277,7 +271,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.setPercentRate());
   },
   onTermChange(evt) {
-    dispatch(ActionCreator.setTerm(Number(evt.target.value)))
+    dispatch(ActionCreator.setTerm(Number(evt.target.value.replace(/\D/g, ''))))
   },
   onMotherCapitalChange(evt) {
     dispatch(ActionCreator.setUseMotherCapital(evt.target.checked))

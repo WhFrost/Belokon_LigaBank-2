@@ -17,6 +17,7 @@ const ActionType = {
   SET_USE_INSURANCE_AUTO: 'credit/setUseInsuranceAuto',
   SET_USE_INSURANCE_LIFE: 'credit/setUseInsuranceLife',
   SET_PERCENT_RATE: 'credit/setPercentRate',
+  SET_OFFER_STATUS: 'credit/setOfferStatus',
   CLEAR_CALC_DATA: 'credit/clearData',
 };
 
@@ -86,6 +87,10 @@ const ActionCreator = {
   }),
   setPercentRate: () => ({
     type: ActionType.SET_PERCENT_RATE,
+  }),
+  setOfferStatus: (status) => ({
+    type: ActionType.SET_OFFER_STATUS,
+    payload: status,
   }),
   clearCalcData: () => ({
     type: ActionType.CLEAR_CALC_DATA,

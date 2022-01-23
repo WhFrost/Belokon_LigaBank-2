@@ -27,7 +27,6 @@ function LoginPopup(props) {
         login: login,
         password: password
       };
-      console.log(user);
       onLoginPopupSubmit(user);
       localStorage.setItem('userData', JSON.stringify(user));
       onLoginPopupClose();

@@ -20,9 +20,21 @@
   grid-column: span 2;
 }
 
+.offer__description {
+  margin: 0;
+  padding: 0;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #394959;
+  font-style: normal;
+}
+
 .offer__details {
   display: grid;
   margin: 0;
+  margin-bottom: 40px;
 
   column-gap: 50px;
 

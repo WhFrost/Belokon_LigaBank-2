@@ -29,6 +29,7 @@ const initialState = {
   useMotherCapital: false,
   useInsuranceAuto: false,
   useInsuranceLife: false,
+  isOfferValid: false,
 }
 
 const calculatorReducer = (state = initialState, action) => {
@@ -94,6 +95,9 @@ const calculatorReducer = (state = initialState, action) => {
           firstPaymentPercent:  action.payload
             ? Math.round(action.payload * 100 / state.cost)
             : Math.round(state.minFirstPayment* 100 / state.cost),
+          totalCost: action.payload
+            ? state.cost - action.payload
+            : state.cost - state.minFirstPayment,
       }
       case (ActionType.SET_TERM):
         return {
@@ -142,6 +146,12 @@ const calculatorReducer = (state = initialState, action) => {
             : state.cost >= 2000000
               ? MIN_PERCENT_RATE_FOR_AUTO
               : MAX_PERCENT_RATE_FOR_AUTO
+        }
+      }
+      case (ActionType.SET_OFFER_STATUS): {
+        return {
+          ...state,
+          isOfferValid: action.payload,
         }
       }
       case (ActionType.CLEAR_CALC_DATA):

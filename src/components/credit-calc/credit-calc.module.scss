@@ -7,7 +7,7 @@
 
   column-gap: 70px;
 
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 2fr 1fr;
 }
 
 .credit-calc__title {
@@ -65,6 +65,8 @@
   ;
 
   &--target {
+    position: relative;
+
     margin-bottom: 40px;
     padding-right: 26px;
     padding-left: 24px;
@@ -72,12 +74,15 @@
     font-size: 16px;
     line-height: 22px;
     text-align: left;
-  }
-}
 
-.credit-calc__field--cost::-webkit-outer-spin-button,
-.credit-calc__field--cost::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+    background: url('../../assets/img/select.svg') no-repeat;
+    background-position: right 26px center;
+    cursor: pointer;
+
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+  }
 }
 
 .credit-calc__range-label-wrapper {
