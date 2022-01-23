@@ -16,6 +16,7 @@ const ActionType = {
   SET_USE_MOTHER_CAPITAL: 'credit/setUseMotherCapital',
   SET_USE_INSURANCE_AUTO: 'credit/setUseInsuranceAuto',
   SET_USE_INSURANCE_LIFE: 'credit/setUseInsuranceLife',
+  SET_PERCENT_RATE: 'credit/setPercentRate',
   CLEAR_CALC_DATA: 'credit/clearData',
 };
 
@@ -82,6 +83,9 @@ const ActionCreator = {
   setUseInsuranceLife: (insurance) => ({
     type: ActionType.SET_USE_INSURANCE_LIFE,
     payload: insurance,
+  }),
+  setPercentRate: () => ({
+    type: ActionType.SET_PERCENT_RATE,
   }),
   clearCalcData: () => ({
     type: ActionType.CLEAR_CALC_DATA,

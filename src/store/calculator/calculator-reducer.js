@@ -6,7 +6,13 @@ import {
   MIN_PERCNET_FIRST_PAYMENT_AUTO,
   MIN_TERM_MORTGAGE,
   MIN_TERM_AUTO,
-  MOTHER_CAPITAL
+  MOTHER_CAPITAL,
+  MIN_PERCENT_RATE_FOR_MORTGAGE,
+  MAX_PERCENT_RATE_FOR_MORTGAGE,
+  MIN_PERCENT_RATE_FOR_AUTO,
+  MAX_PERCENT_RATE_FOR_AUTO,
+  MIN_PERCENT_MOD_RATE_FOR_AUTO,
+  MAX_PERCENT_MOD_RATE_FOR_AUTO
 } from '../../const';
 
 const initialState = {
@@ -18,6 +24,8 @@ const initialState = {
   maxFirstPayment: 2000000,
   firstPaymentPercent: 10,
   term: 5,
+  percentRate: 9.4,
+  percentRateMod: null,
   useMotherCapital: false,
   useInsuranceAuto: false,
   useInsuranceLife: false,
@@ -104,12 +112,38 @@ const calculatorReducer = (state = initialState, action) => {
         return {
           ...state,
           useInsuranceAuto: action.payload,
+          percentRateMod: action.payload
+          ? (action.payload && state.useInsuranceLife)
+            ? MIN_PERCENT_MOD_RATE_FOR_AUTO
+            : MAX_PERCENT_MOD_RATE_FOR_AUTO
+          : state.useInsuranceLife
+            ? MAX_PERCENT_MOD_RATE_FOR_AUTO
+            : null
         }
       case (ActionType.SET_USE_INSURANCE_LIFE):
         return {
           ...state,
           useInsuranceLife: action.payload,
+          percentRateMod: action.payload
+          ? (action.payload && state.useInsuranceAuto)
+            ? MIN_PERCENT_MOD_RATE_FOR_AUTO
+            : MAX_PERCENT_MOD_RATE_FOR_AUTO
+          : state.useInsuranceAuto
+            ? MAX_PERCENT_MOD_RATE_FOR_AUTO
+            : null
         }
+      case (ActionType.SET_PERCENT_RATE): {
+        return {
+          ...state,
+          percentRate: state.creditTarget === 'MORTGAGE'
+          ?  state.firstPaymentPercent < 15 ? MIN_PERCENT_RATE_FOR_MORTGAGE : MAX_PERCENT_RATE_FOR_MORTGAGE
+          :  state.percentRateMod
+            ? state.percentRateMod
+            : state.cost >= 2000000
+              ? MIN_PERCENT_RATE_FOR_AUTO
+              : MAX_PERCENT_RATE_FOR_AUTO
+        }
+      }
       case (ActionType.CLEAR_CALC_DATA):
         return {
           cost: 2000000,

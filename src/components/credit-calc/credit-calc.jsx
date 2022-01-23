@@ -58,6 +58,7 @@ function CreditCalc (props) {
     onInsuranceLifeChange
   } = props;
 
+  console.log(typeof term);
 
   return (
     <section className={styles['credit-calc']} id='credit-calc'>
@@ -248,27 +249,32 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.setMinFirstPayment());
     dispatch(ActionCreator.setMaxFirstPayment());
     dispatch(ActionCreator.setFirstPayment())
+    dispatch(ActionCreator.setPercentRate())
   },
   onCostChange(evt) {
     dispatch(ActionCreator.setCostTarget(Number(evt.target.value)));
     dispatch(ActionCreator.setMinFirstPayment());
     dispatch(ActionCreator.setMaxFirstPayment());
-    dispatch(ActionCreator.setFirstPayment())
+    dispatch(ActionCreator.setFirstPayment());
+    dispatch(ActionCreator.setPercentRate());
   },
   onDecCostButtonClick() {
     dispatch(ActionCreator.decCostTarget());
     dispatch(ActionCreator.setMinFirstPayment());
     dispatch(ActionCreator.setMaxFirstPayment());
-    dispatch(ActionCreator.setFirstPayment())
+    dispatch(ActionCreator.setFirstPayment());
+    dispatch(ActionCreator.setPercentRate());
   },
   onIncCostButtonClick() {
     dispatch(ActionCreator.incCostTarget());
     dispatch(ActionCreator.setMinFirstPayment());
     dispatch(ActionCreator.setMaxFirstPayment());
-    dispatch(ActionCreator.setFirstPayment())
+    dispatch(ActionCreator.setFirstPayment());
+    dispatch(ActionCreator.setPercentRate());
   },
   onFirstPaymentChange(evt) {
-    dispatch(ActionCreator.setFirstPayment(Number(evt.target.value)));;
+    dispatch(ActionCreator.setFirstPayment(Number(evt.target.value)));
+    dispatch(ActionCreator.setPercentRate());
   },
   onTermChange(evt) {
     dispatch(ActionCreator.setTerm(Number(evt.target.value)))
@@ -277,10 +283,12 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.setUseMotherCapital(evt.target.checked))
   },
   onInsuranceAutoChange(evt) {
-    dispatch(ActionCreator.setUseInsuranceAuto(evt.target.checked))
+    dispatch(ActionCreator.setUseInsuranceAuto(evt.target.checked));
+    dispatch(ActionCreator.setPercentRate());
   },
   onInsuranceLifeChange(evt) {
-    dispatch(ActionCreator.setUseInsuranceLife(evt.target.checked))
+    dispatch(ActionCreator.setUseInsuranceLife(evt.target.checked));
+    dispatch(ActionCreator.setPercentRate());
   },
   clearData() {
     dispatch(ActionCreator.clearCalcData())

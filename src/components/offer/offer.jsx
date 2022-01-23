@@ -3,9 +3,26 @@ import globalStyles from '../app/app.module.scss';
 import styles from './offer.module.scss';
 import {connect} from 'react-redux';
 import {getTotalCost} from '../../store/calculator/selectors';
+import {
+  getMonthlyPayment,
+  getRequiredIncom
+} from '../../utils';
+import {
+  getCreditTarget,
+  getTerm,
+  getPercentRate,
+} from '../../store/calculator/selectors';
 
 function Offer (props) {
-  const {totalCost} = props;
+  const {
+    creditTarget,
+    totalCost,
+    term,
+    percentRate,
+  } = props;
+
+  const monthlyPayment = getMonthlyPayment(totalCost, percentRate, term);
+  const requiredIncom = getRequiredIncom(monthlyPayment);
 
   return (
     <div className={styles['offer']}>
@@ -18,12 +35,12 @@ function Offer (props) {
             {totalCost} рублей
           </dd>
           <dt className={styles['offer__item-name']}>
-            Сумма ипотеки
+            Сумма {creditTarget === 'MORTGAGE' ? 'ипотеки' : 'автокредита'}
           </dt>
         </div>
         <div className={styles['offer__item']}>
           <dd className={styles['offer__item-value']}>
-            %
+            {percentRate}%
           </dd>
           <dt className={styles['offer__item-name']}>
             Процентная ставка
@@ -31,7 +48,7 @@ function Offer (props) {
         </div>
         <div className={styles['offer__item']}>
           <dd className={styles['offer__item-value']}>
-            рублей
+          {monthlyPayment} рублей
           </dd>
           <dt className={styles['offer__item-name']}>
             Ежемесячный платеж
@@ -39,7 +56,7 @@ function Offer (props) {
         </div>
         <div className={styles['offer__item']}>
           <dd className={styles['offer__item-value']}>
-            рублей
+            {requiredIncom} рублей
           </dd>
           <dt className={styles['offer__item-name']}>
             Необходимый доход
@@ -51,7 +68,10 @@ function Offer (props) {
 }
 
 const mapStateToProps = (state) => ({
+  creditTarget: getCreditTarget(state),
   totalCost: getTotalCost(state),
+  term: getTerm(state),
+  percentRate: getPercentRate(state)
 });
 
 export default connect(mapStateToProps, null)(Offer);
