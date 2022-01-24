@@ -156,6 +156,7 @@ const calculatorReducer = (state = initialState, action) => {
       }
       case (ActionType.CLEAR_CALC_DATA):
         return {
+          creditTarget: null,
           cost: 2000000,
           totalCost: 2000000,
           firstPayment: 200000,
@@ -163,9 +164,12 @@ const calculatorReducer = (state = initialState, action) => {
           maxFirstPayment: 2000000,
           firstPaymentPercent: 10,
           term: 5,
+          percentRate: 9.4,
+          percentRateMod: null,
           useMotherCapital: false,
           useInsuranceAuto: false,
           useInsuranceLife: false,
+          isOfferValid: false,
         }
     default: return state;
   }

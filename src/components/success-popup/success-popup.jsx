@@ -44,6 +44,7 @@ const mapDispatchToProps = (dispatch) => ({
   onSuccessPopupClose() {
     dispatch(ActionCreator.setSuccesPopupView(false))
     dispatch(ActionCreator.clearOfferData())
+    dispatch(ActionCreator.clearCalcData())
   }
 })
 
