@@ -1,7 +1,7 @@
 import {ActionType} from '../action';
 
 const initialState = {
-    isSuccessPopupView: true,
+    isSuccessPopupView: false,
     id: 1,
     name: '',
     phone: '',
