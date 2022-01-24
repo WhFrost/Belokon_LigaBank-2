@@ -8,7 +8,7 @@ function SiteNavItem(props) {
   return (
     <li className={styles['site-nav-item']}>
       <a href={link} className={`${globalStyles['link']} ${styles['site-nav-item__link']}`}>
-      {title}
+        {title}
       </a>
     </li>
   );
@@ -17,6 +17,6 @@ function SiteNavItem(props) {
 SiteNavItem.propTypes = {
   title: PropTypes.string,
   link: PropTypes.string,
-}
+};
 
 export default SiteNavItem;

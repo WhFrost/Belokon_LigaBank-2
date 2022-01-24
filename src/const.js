@@ -1,62 +1,62 @@
-import facebook from "./assets/img/facebook.svg";
-import instagram from "./assets/img/instagram.svg";
-import twitter from "./assets/img/twitter.svg";
-import youtube from "./assets/img/youtube.svg";
-import depositsImage from "./assets/img/deposits@1x.jpg";
-import depositsRetinaImage from "./assets/img/deposits@2x.jpg";
-import creditsImage from "./assets/img/credits@1x.jpg";
-import creditsRetinaImage from "./assets/img/credits@2x.jpg";
-import insuranceImage from "./assets/img/insurance@1x.jpg";
-import insuranceRetinaImage from "./assets/img/insurance@2x.jpg";
-import onlineServicesImage from "./assets/img/online-services@1x.jpg";
-import onlineServicesRetinaImage from "./assets/img/online-services@2x.jpg";
+import facebook from './assets/img/facebook.svg';
+import instagram from './assets/img/instagram.svg';
+import twitter from './assets/img/twitter.svg';
+import youtube from './assets/img/youtube.svg';
+import depositsImage from './assets/img/deposits@1x.jpg';
+import depositsRetinaImage from './assets/img/deposits@2x.jpg';
+import creditsImage from './assets/img/credits@1x.jpg';
+import creditsRetinaImage from './assets/img/credits@2x.jpg';
+import insuranceImage from './assets/img/insurance@1x.jpg';
+import insuranceRetinaImage from './assets/img/insurance@2x.jpg';
+import onlineServicesImage from './assets/img/online-services@1x.jpg';
+import onlineServicesRetinaImage from './assets/img/online-services@2x.jpg';
 
 const HEADER_NAV_ITEMS = [
   {
-    title: "Услуги",
-    link: "#",
+    title: 'Услуги',
+    link: '#',
   },
   {
-    title: "Рассчитать кредит",
-    link: "#",
+    title: 'Рассчитать кредит',
+    link: '#',
   },
   {
-    title: "Конвертер валют",
-    link: "#",
+    title: 'Конвертер валют',
+    link: '#',
   },
   {
-    title: "Контакты",
-    link: "#",
+    title: 'Контакты',
+    link: '#',
   },
 ];
 
 const COMPANY_INFO = {
-  address: "150015, г. Москва, ул. Московская, д. 32",
-  license: "Генеральная лицензия Банка России №1050",
-  copyright: "Ⓒ Лига Банк, 2019",
-  mobilePhone: "*0904",
-  mobilePhoneDescription: "Бесплатно для абонентов МТС, Билайн, Мегафон, Теле2",
-  phone: "8 800 111 22 33",
-  phoneDescription: "Бесплатный для всех городов России",
+  location: '150015, г. Москва, ул. Московская, д. 32',
+  license: 'Генеральная лицензия Банка России №1050',
+  copyright: 'Ⓒ Лига Банк, 2019',
+  mobilePhone: '*0904',
+  mobilePhoneDescription: 'Бесплатно для абонентов МТС, Билайн, Мегафон, Теле2',
+  phone: '8 800 111 22 33',
+  phoneDescription: 'Бесплатный для всех городов России',
   socialList: [
     {
-      name: "facebook",
-      link: "#",
+      name: 'facebook',
+      link: '#',
       icon: facebook,
     },
     {
-      name: "instagram",
-      link: "#",
+      name: 'instagram',
+      link: '#',
       icon: instagram,
     },
     {
-      name: "twitter",
-      link: "#",
+      name: 'twitter',
+      link: '#',
       icon: twitter,
     },
     {
-      name: "youtube",
-      link: "#",
+      name: 'youtube',
+      link: '#',
       icon: youtube,
     },
   ],
@@ -64,64 +64,64 @@ const COMPANY_INFO = {
 
 const FOOTER_NAV_ITEMS = [
   {
-    title: "Услуги",
-    link: "#",
+    title: 'Услуги',
+    link: '#',
   },
   {
-    title: "Рассчитать кредит",
-    link: "#",
+    title: 'Рассчитать кредит',
+    link: '#',
   },
   {
-    title: "Контакты",
-    link: "#",
+    title: 'Контакты',
+    link: '#',
   },
   {
-    title: "Задать вопрос",
-    link: "#",
+    title: 'Задать вопрос',
+    link: '#',
   },
 ];
 
 const FEATURES = [
   {
-    id: "deposits",
-    name: "Вклады",
-    promo: "Вклады Лига Банка – это выгодная инвестиция в свое будущее",
-    features: [
-      "Проценты по вкладам до 7%",
-      "Разнообразные условия",
-      "Возможность ежемесячной капитализации или вывод процентов на банковскую карту",
+    id: 'deposits',
+    name: 'Вклады',
+    promo: 'Вклады Лига Банка – это выгодная инвестиция в свое будущее',
+    options: [
+      'Проценты по вкладам до 7%',
+      'Разнообразные условия',
+      'Возможность ежемесячной капитализации или вывод процентов на банковскую карту',
     ],
     srcImage: depositsImage,
     srcRetinaImage: depositsRetinaImage,
   },
   {
-    id: "credits",
-    name: "Кредиты",
-    promo: "Лига Банк выдает кредиты под любые цели",
-    features: ["Ипотечный кредит", "Автокредит", "Потребительский кредит"],
+    id: 'credits',
+    name: 'Кредиты',
+    promo: 'Лига Банк выдает кредиты под любые цели',
+    options: ['Ипотечный кредит', 'Автокредит', 'Потребительский кредит'],
     srcImage: creditsImage,
     srcRetinaImage: creditsRetinaImage,
   },
   {
-    id: "insurance",
-    name: "Страхование",
-    promo: "Лига Страхование — застрахуем все что захотите",
-    features: [
-      "Автомобильное страхование",
-      "Страхование жизни и здоровья",
-      "Страхование недвижимости",
+    id: 'insurance',
+    name: 'Страхование',
+    promo: 'Лига Страхование — застрахуем все что захотите',
+    options: [
+      'Автомобильное страхование',
+      'Страхование жизни и здоровья',
+      'Страхование недвижимости',
     ],
     srcImage: insuranceImage,
     srcRetinaImage: insuranceRetinaImage,
   },
   {
-    id: "online-services",
-    name: "Онлайн-сервисы",
+    id: 'online-services',
+    name: 'Онлайн-сервисы',
     promo:
-      "Лига Банк — это огромное количество онлайн-сервисов для вашего удобства",
-    features: [
-      "Мобильный банк, который всегда под рукой",
-      "Приложение Лига-проездной позволит вам оплачивать билеты по всему миру",
+      'Лига Банк — это огромное количество онлайн-сервисов для вашего удобства',
+    options: [
+      'Мобильный банк, который всегда под рукой',
+      'Приложение Лига-проездной позволит вам оплачивать билеты по всему миру',
     ],
     srcImage: onlineServicesImage,
     srcRetinaImage: onlineServicesRetinaImage,
@@ -129,44 +129,44 @@ const FEATURES = [
 ];
 
 const TabsNames = {
-  DEPOSITS: "Вклады",
-  CREDITS: "Кредиты",
-  INSURANCE: "Страхование",
-  ONLINE_SERVICES: "Онлайн-сервисы",
+  DEPOSITS: 'Вклады',
+  CREDITS: 'Кредиты',
+  INSURANCE: 'Страхование',
+  ONLINE_SERVICES: 'Онлайн-сервисы',
 };
 
-const API_KEY = "AIzaSyDmFVI-aAevCd3zJtrq-Tq1RetDLZ4cDy0";
+const API_KEY = 'AIzaSyDmFVI-aAevCd3zJtrq-Tq1RetDLZ4cDy0';
 const MAP_PINS = [
   {
-    city: "moscow",
+    city: 'moscow',
     coords: {
       lat: 55.6034448,
       lng: 36.9422362,
     },
   },
   {
-    city: "saratov",
+    city: 'saratov',
     coords: {
       lat: 51.5317097,
       lng: 45.8568217,
     },
   },
   {
-    city: "kazan",
+    city: 'kazan',
     coords: {
       lat: 55.7956149,
       lng: 48.9332218,
     },
   },
   {
-    city: "tumen",
+    city: 'tumen',
     coords: {
       lat: 57.1428753,
       lng: 65.4068769,
     },
   },
   {
-    city: "omsk",
+    city: 'omsk',
     coords: {
       lat: 54.9859925,
       lng: 73.2160576,
@@ -176,12 +176,12 @@ const MAP_PINS = [
 const DEFAULT_MAP_LAT = 56.2238661;
 const DEFAULT_MAP_LNG = 57.1238747;
 const DEFAULT_MAP_ZOOM = 5.2;
-const MAP_WIDTH = "1170px";
-const MAP_HEIGHT = "462px";
+const MAP_WIDTH = '1170px';
+const MAP_HEIGHT = '462px';
 
 const CreditTarget = {
-  MORTGAGE: "Ипотечное кредитование",
-  AUTO: "Автомобильное кредитование",
+  MORTGAGE: 'Ипотечное кредитование',
+  AUTO: 'Автомобильное кредитование',
 };
 
 const creditTargets = Object.keys(CreditTarget);

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import globalStyles from '../app/app.module.scss';
 import styles from './credit-calc.module.scss';
 import {
@@ -59,7 +60,7 @@ function CreditCalc (props) {
     onTermChange,
     onMotherCapitalChange,
     onInsuranceAutoChange,
-    onInsuranceLifeChange
+    onInsuranceLifeChange,
   } = props;
 
   return (
@@ -80,16 +81,16 @@ function CreditCalc (props) {
                 className={`${styles['credit-calc__field']} ${styles['credit-calc__field--target']}`}
                 value={creditTarget === null ? 'default' : creditTarget}
                 onChange={onTargetChange}
-                >
+              >
                 <option value={'default'} disabled>Выберите цель кредита</option>
                 {
                   creditTargets.map((target) => (
                     <option key={nanoid()} value={target}>{CreditTarget[target]}</option>
-                    ))
-                  }
-                </select>
-                {
-                  creditTarget !== null &&
+                  ))
+                }
+              </select>
+              {
+                creditTarget !== null &&
                   <>
                     <h3 className={`${globalStyles['title']} ${styles['credit-calc__title--step']}`}>
                       Шаг 2. Введите параметры кредита
@@ -151,7 +152,7 @@ function CreditCalc (props) {
                         max={creditTarget === 'MORTGAGE' ? MAX_TERM_MORTGAGE : MAX_TERM_AUTO}
                         value={`${term} ${getWordDeclension(term, DeclensionYears)}`}
                         onChange={onTermChange}
-                        />
+                      />
                       <input
                         type="range"
                         min={creditTarget === 'MORTGAGE' ? MIN_TERM_MORTGAGE : MIN_TERM_AUTO}
@@ -161,12 +162,12 @@ function CreditCalc (props) {
                         onChange={onTermChange}
                       />
                       <div className={styles['credit-calc__range-label-wrapper']}>
-                      <span className={`${styles['credit-calc__range-label']} ${styles['credit-calc__range-label--min']}`}>
-                        {creditTarget === 'MORTGAGE' ? MIN_TERM_MORTGAGE : MIN_TERM_AUTO} лет
-                      </span>
-                      <span className={`${styles['credit-calc__range-label']} ${styles['credit-calc__range-label--max']}`}>
-                      {creditTarget === 'MORTGAGE' ? MAX_TERM_MORTGAGE : MAX_TERM_AUTO} лет
-                      </span>
+                        <span className={`${styles['credit-calc__range-label']} ${styles['credit-calc__range-label--min']}`}>
+                          {creditTarget === 'MORTGAGE' ? MIN_TERM_MORTGAGE : MIN_TERM_AUTO} лет
+                        </span>
+                        <span className={`${styles['credit-calc__range-label']} ${styles['credit-calc__range-label--max']}`}>
+                          {creditTarget === 'MORTGAGE' ? MAX_TERM_MORTGAGE : MAX_TERM_AUTO} лет
+                        </span>
                       </div>
                     </div>
                     {
@@ -178,7 +179,7 @@ function CreditCalc (props) {
                             id="mother-capital"
                             className={`${globalStyles['visually-hidden']} ${styles['credit-calc__checkbox']}`}
                             value="mother-capital"
-                            checked={useMotherCapital ? true : false}
+                            checked={useMotherCapital}
                             onChange={onMotherCapitalChange}
                           >
                           </input>
@@ -188,47 +189,70 @@ function CreditCalc (props) {
                         </div>
                         :
                         <div className={styles['credit-calc__checkbox-wrapper']}>
-                        <input
-                          type="checkbox"
-                          id="insurance-auto"
-                          className={`${globalStyles['visually-hidden']} ${styles['credit-calc__checkbox']}`}
-                          value="insurance-auto"
-                          checked={useInsuranceAuto ? true : false}
-                          onChange={onInsuranceAutoChange}
-                        >
-                        </input>
-                        <label htmlFor="insurance-auto" className={styles['credit-calc__checkbox-label']}>
+                          <input
+                            type="checkbox"
+                            id="insurance-auto"
+                            className={`${globalStyles['visually-hidden']} ${styles['credit-calc__checkbox']}`}
+                            value="insurance-auto"
+                            checked={useInsuranceAuto}
+                            onChange={onInsuranceAutoChange}
+                          >
+                          </input>
+                          <label htmlFor="insurance-auto" className={styles['credit-calc__checkbox-label']}>
                           Оформить КАСКО в нашем банке
-                        </label>
-                        <input
-                          type="checkbox"
-                          id="insurance-life"
-                          className={`${globalStyles['visually-hidden']} ${styles['credit-calc__checkbox']}`}
-                          value="insurance-life"
-                          checked={useInsuranceLife? true : false}
-                          onChange={onInsuranceLifeChange}
-                        >
-                        </input>
-                        <label htmlFor="insurance-life" className={styles['credit-calc__checkbox-label']}>
-                          Оформить Страхование жизни в нашем банке
-                        </label>
-                      </div>
+                          </label>
+                          <input
+                            type="checkbox"
+                            id="insurance-life"
+                            className={`${globalStyles['visually-hidden']} ${styles['credit-calc__checkbox']}`}
+                            value="insurance-life"
+                            checked={useInsuranceLife}
+                            onChange={onInsuranceLifeChange}
+                          >
+                          </input>
+                          <label htmlFor="insurance-life" className={styles['credit-calc__checkbox-label']}>
+                            Оформить Страхование жизни в нашем банке
+                          </label>
+                        </div>
                     }
                   </>
-                }
-              </div>
+              }
+            </div>
           </form>
         </div>
-         {
-           creditTarget !== null && <Offer />
-         }
-         {
-           isOfferValid && <OfferForm />
-         }
+        {
+          creditTarget !== null && <Offer />
+        }
+        {
+          isOfferValid && <OfferForm />
+        }
       </div>
     </section>
   );
 }
+
+CreditCalc.propTypes ={
+  creditTarget: PropTypes.string,
+  costTarget: PropTypes.number,
+  firstPayment: PropTypes.number,
+  minFirstPayment: PropTypes.number,
+  maxFirstPayment: PropTypes.number,
+  firstPaymentPercent: PropTypes.number,
+  term: PropTypes.number,
+  useMotherCapital: PropTypes.bool,
+  useInsuranceAuto: PropTypes.bool,
+  useInsuranceLife: PropTypes.bool,
+  isOfferValid: PropTypes.bool,
+  onTargetChange: PropTypes.func,
+  onCostChange: PropTypes.func,
+  onDecCostButtonClick: PropTypes.func,
+  onIncCostButtonClick: PropTypes.func,
+  onFirstPaymentChange: PropTypes.func,
+  onTermChange: PropTypes.func,
+  onMotherCapitalChange: PropTypes.func,
+  onInsuranceAutoChange: PropTypes.func,
+  onInsuranceLifeChange: PropTypes.func,
+};
 
 const mapStateToProps = (state) => ({
   creditTarget: getCreditTarget(state),
@@ -241,7 +265,7 @@ const mapStateToProps = (state) => ({
   useMotherCapital: getUseMotherCapital(state),
   useInsuranceAuto: getUseInsuranceAuto(state),
   useInsuranceLife: getUseInsuranceLife(state),
-  isOfferValid: getOfferStatus(state)
+  isOfferValid: getOfferStatus(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -249,8 +273,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.setCreditTarget(evt.target.value));
     dispatch(ActionCreator.setMinFirstPayment());
     dispatch(ActionCreator.setMaxFirstPayment());
-    dispatch(ActionCreator.setFirstPayment())
-    dispatch(ActionCreator.setPercentRate())
+    dispatch(ActionCreator.setFirstPayment());
+    dispatch(ActionCreator.setPercentRate());
   },
   onCostChange(evt) {
     dispatch(ActionCreator.setCostTarget(Number(evt.target.value.replace(/\D/g, ''))));
@@ -278,10 +302,10 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.setPercentRate());
   },
   onTermChange(evt) {
-    dispatch(ActionCreator.setTerm(Number(evt.target.value.replace(/\D/g, ''))))
+    dispatch(ActionCreator.setTerm(Number(evt.target.value.replace(/\D/g, ''))));
   },
   onMotherCapitalChange(evt) {
-    dispatch(ActionCreator.setUseMotherCapital(evt.target.checked))
+    dispatch(ActionCreator.setUseMotherCapital(evt.target.checked));
   },
   onInsuranceAutoChange(evt) {
     dispatch(ActionCreator.setUseInsuranceAuto(evt.target.checked));
@@ -292,8 +316,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.setPercentRate());
   },
   clearData() {
-    dispatch(ActionCreator.clearCalcData())
-  }
+    dispatch(ActionCreator.clearCalcData());
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreditCalc);

@@ -18,6 +18,6 @@ function FooterNavItem(props) {
 FooterNavItem.propTypes = {
   title: PropTypes.string,
   link: PropTypes.string,
-}
+};
 
 export default FooterNavItem;

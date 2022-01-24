@@ -1,4 +1,5 @@
 import React, {useRef, useEffect} from 'react';
+import PropTypes from 'prop-types';
 import globalStyles from '../app/app.module.scss';
 import styles from './login-popup.module.scss';
 import Logo from '../logo/logo';
@@ -7,7 +8,7 @@ import {connect} from 'react-redux';
 import {ActionCreator} from '../../store/action';
 import {
   getLogin,
-  getPassword,
+  getPassword
 } from '../../store/user/selectors';
 
 function LoginPopup(props) {
@@ -17,7 +18,7 @@ function LoginPopup(props) {
     onLoginChange,
     onPasswordChange,
     onLoginPopupSubmit,
-    onLoginPopupClose
+    onLoginPopupClose,
   } = props;
 
   const handleLoginSubmit = (evt) => {
@@ -25,13 +26,13 @@ function LoginPopup(props) {
     if (login && password) {
       const user = {
         login: login,
-        password: password
+        password: password,
       };
       onLoginPopupSubmit(user);
       localStorage.setItem('userData', JSON.stringify(user));
       onLoginPopupClose();
     }
-  }
+  };
 
   useEffect(() => {
     const onPressEsc = (evt) => {
@@ -56,7 +57,7 @@ function LoginPopup(props) {
   return (
     <section className={styles['login']}>
       <div className={styles['login__wrapper']}>
-        <Logo alternate={true} />
+        <Logo alternate='true' />
         <Button
           modificator={'close'}
           onClick={onLoginPopupClose}
@@ -111,6 +112,15 @@ function LoginPopup(props) {
   );
 }
 
+LoginPopup.propTypes ={
+  login: PropTypes.string,
+  password: PropTypes.string,
+  onLoginChange: PropTypes.func,
+  onPasswordChange: PropTypes.func,
+  onLoginPopupSubmit: PropTypes.func,
+  onLoginPopupClose: PropTypes.func,
+};
+
 const mapStateToProps = (state) => ({
   login: getLogin(state),
   password: getPassword(state),
@@ -128,8 +138,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.setLoginStatus(true));
   },
   onLoginPopupClose() {
-    dispatch(ActionCreator.setViewLoginPopupStatus(false))
-  }
-})
+    dispatch(ActionCreator.setViewLoginPopupStatus(false));
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPopup);

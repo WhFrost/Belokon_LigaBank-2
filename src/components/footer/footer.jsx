@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {nanoid} from 'nanoid';
 import globalStyles from '../app/app.module.scss';
 import styles from './footer.module.scss';
@@ -7,15 +8,19 @@ import Logo from '../logo/logo';
 function Footer(props) {
   const {footerNavItems, companyInfo} = props;
   const {
-    address,
+    location,
     license,
     copyright,
     mobilePhone,
     mobilePhoneDescription,
     phone,
     phoneDescription,
-    socialList
+    socialList,
   } = companyInfo;
+
+  const socialsLinks = socialList;
+
+  const phoneToLink = (number) => number.replace(/\s+/g, '');
 
   return (
     <footer className={styles['footer']}>
@@ -25,7 +30,7 @@ function Footer(props) {
         <div className={styles['footer__address-wrapper']}>
           <Logo />
           <address className={styles['footer__address']}>
-            {address} <br />
+            {location} <br />
             {license} <br />
           </address>
           <p className={styles['footer__copyright']}>{copyright}</p>
@@ -57,7 +62,7 @@ function Footer(props) {
               className={`${styles['footer__phones-item']} ${styles['footer__phones-item--city']}`}
             >
               <a
-                href={phone.replace(/\s+/g, '')}
+                href={phoneToLink(phone)}
                 className={`${globalStyles['link']} ${styles['footer__phones-link']}`}
               >
                 {phone}
@@ -70,18 +75,34 @@ function Footer(props) {
         </div>
         <div className={styles['footer__socials']}>
           <ul className={`${globalStyles['list']} ${styles['footer__socials-list']}`}>
-            {socialList.map(({name, link, icon}) => (
-            <li key={nanoid()} className={styles['footer__socials-item']}>
-            <a href={link} className={styles['footer__socials-link']}>
-              <img src={icon} alt={name} />
-            </a>
-          </li>
-            ))}
+            {
+              socialsLinks.map(({name, link, icon}) => (
+                <li key={nanoid()} className={styles['footer__socials-item']}>
+                  <a href={link} className={styles['footer__socials-link']}>
+                    <img src={icon} alt={name} />
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
       </div>
     </footer>
   );
 }
+
+Footer.propTypes ={
+  footerNavItems: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+  companyInfo: PropTypes.objectOf(PropTypes.shape({
+    location: PropTypes.string,
+    license: PropTypes.string,
+    copyright: PropTypes.string,
+    mobilePhone: PropTypes.string,
+    mobilePhoneDescription: PropTypes.string,
+    phone: PropTypes.string,
+    phoneDescription: PropTypes.string,
+    socialList: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+  })),
+};
 
 export default Footer;

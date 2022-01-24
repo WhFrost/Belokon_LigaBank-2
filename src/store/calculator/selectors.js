@@ -26,4 +26,4 @@ export {
   getTotalCost,
   getPercentRate,
   getOfferStatus
-}
+};

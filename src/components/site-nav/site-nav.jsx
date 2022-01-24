@@ -15,10 +15,10 @@ function SiteNav(props) {
   );
 }
 SiteNav.propTypes = {
-  navItems: PropTypes.arrayOf(PropTypes.shape({
+  headerNavItems: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     link: PropTypes.string,
-  }))
-}
+  })),
+};
 
 export default SiteNav;

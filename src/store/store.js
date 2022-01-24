@@ -5,9 +5,9 @@ import {rootReducer} from './reducer';
 const store = createStore(
   rootReducer,
   composeWithDevTools(
-    applyMiddleware()
-  )
-  );
+    applyMiddleware(),
+  ),
+);
 
 export {
   store

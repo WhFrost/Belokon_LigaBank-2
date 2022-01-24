@@ -20,7 +20,9 @@ function Button(props) {
 Button.propTypes = {
   text: PropTypes.string,
   onClick: PropTypes.func,
-  mod: PropTypes.string,
+  onMouseUp: PropTypes.func,
+  onMouseDown: PropTypes.func,
+  modificator: PropTypes.string,
 };
 
 export default Button;

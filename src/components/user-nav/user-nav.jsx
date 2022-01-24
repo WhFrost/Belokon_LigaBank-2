@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import globalStyles from '../app/app.module.scss';
 import styles from './user-nav.module.scss';
 import {connect} from 'react-redux';
@@ -43,6 +44,12 @@ function UserNav(props) {
   );
 }
 
+UserNav.propTypes = {
+  isLogin: PropTypes.bool,
+  login: PropTypes.string,
+  onLoginClick: PropTypes.func,
+};
+
 const mapStateToProps = (state) => ({
   isLogin: getLoginStatus(state),
   loginPopupViewStatus: getViewLoginPopupStatus(state),
@@ -52,7 +59,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onLoginClick() {
     dispatch(ActionCreator.setViewLoginPopupStatus(true));
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserNav);

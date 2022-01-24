@@ -26,33 +26,33 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         loginPopupViewStatus: action.payload,
-      }
+      };
     case ActionType.SET_LOGIN_STATUS:
       return {
         ...state,
         isLogin: action.payload,
-      }
+      };
     case ActionType.SET_LOGIN:
       return {
         ...state,
         login: action.payload,
-      }
+      };
     case ActionType.SET_PASSWORD:
       return {
         ...state,
         password: action.payload,
-      }
+      };
     case ActionType.CLEAR_USER_DATA:
       return {
         LoginPopupViewStatus: false,
         isLogin: false,
         login: '',
         password: '',
-      }
+      };
     default: return state;
   }
-}
+};
 
 export {
   userReducer
-}
+};

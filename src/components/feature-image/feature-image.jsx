@@ -1,9 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import globalStyles from '../app/app.module.scss';
 import styles from './feature-image.module.scss';
 
 function FeatureImage (props) {
-  const {name, srcImage, srcRetinaImage} = props;
+  const {
+    name,
+    srcImage,
+    srcRetinaImage,
+  } = props;
 
   return (
     <img
@@ -16,5 +21,11 @@ function FeatureImage (props) {
     />
   );
 }
+
+FeatureImage.propTypes ={
+  name: PropTypes.string,
+  srcImage: PropTypes.string,
+  srcRetinaImage: PropTypes.string,
+};
 
 export default FeatureImage;

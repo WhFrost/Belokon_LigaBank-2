@@ -7,5 +7,5 @@ export {
   getViewLoginPopupStatus,
   getLoginStatus,
   getLogin,
-  getPassword,
-}
+  getPassword
+};

@@ -1,12 +1,12 @@
 import React from 'react';
 import globalStyles from '../app/app.module.scss';
 import styles from './slide-3.module.scss';
-import thirdSlidePhoto1x from '../../assets/img/slide-3@1x.png'
-import thirdSlidePhoto2x from '../../assets/img/slide-3@2x.png'
+import thirdSlidePhoto1x from '../../assets/img/slide-3@1x.png';
+import thirdSlidePhoto2x from '../../assets/img/slide-3@2x.png';
 
 function ThirdSlide () {
   return (
-<section className={styles['third-slide']}>
+    <section className={styles['third-slide']}>
       <div className={`${styles['third-slide__wrapper']} ${globalStyles['container']}`}>
         <div className={styles['third-slide__wrapper--text']}>
           <h2 className={`${globalStyles['title']} ${styles['third-slide__title']}`}>Лига Банк</h2>
@@ -17,7 +17,7 @@ function ThirdSlide () {
             Найти отделение
           </a>
         </div>
-      <div className={styles['third-slide__wrapper--img']}>
+        <div className={styles['third-slide__wrapper--img']}>
           <img
             srcSet={`${thirdSlidePhoto1x} 1x, ${thirdSlidePhoto2x} 2x`}
             className={styles['third-slide__content-img']}

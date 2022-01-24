@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import globalStyles from '../app/app.module.scss';
 import styles from './success-popup.module.scss';
 import Button from '../button/button';
@@ -7,7 +8,7 @@ import {ActionCreator} from '../../store/action';
 
 function SuccessPopup (props) {
   const {
-    onSuccessPopupClose
+    onSuccessPopupClose,
   } = props;
 
   useEffect(() => {
@@ -40,12 +41,16 @@ function SuccessPopup (props) {
   );
 }
 
+SuccessPopup.propTypes = {
+  onSuccessPopupClose: PropTypes.func,
+};
+
 const mapDispatchToProps = (dispatch) => ({
   onSuccessPopupClose() {
-    dispatch(ActionCreator.setSuccesPopupView(false))
-    dispatch(ActionCreator.clearOfferData())
-    dispatch(ActionCreator.clearCalcData())
-  }
-})
+    dispatch(ActionCreator.setSuccesPopupView(false));
+    dispatch(ActionCreator.clearOfferData());
+    dispatch(ActionCreator.clearCalcData());
+  },
+});
 
 export default connect(null, mapDispatchToProps)(SuccessPopup);

@@ -26,12 +26,12 @@ function Header(props) {
 Header.propTypes = {
   headerNavItems: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
-    link: PropTypes.string
+    link: PropTypes.string,
   })),
   userNavItems: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
-    link: PropTypes.string
+    link: PropTypes.string,
   })),
-}
+};
 
 export default Header;

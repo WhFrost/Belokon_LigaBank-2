@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import globalStyles from '../app/app.module.scss';
 import styles from './offer-form.module.scss';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 import {ActionCreator} from '../../store/action';
 import {
   getWordDeclension
@@ -10,14 +11,14 @@ import {
   getCreditTarget,
   getTotalCost,
   getTerm,
-  getFirstPayment,
+  getFirstPayment
 } from '../../store/calculator/selectors';
 import {
   getSuccessPopupViewStatus,
   getIdFromOffer,
   getNameFromOffer,
   getPhoneFromOffer,
-  getEmailFromOffer,
+  getEmailFromOffer
 } from '../../store/offer/selectors';
 import {
   DeclensionRub,
@@ -40,7 +41,7 @@ function OfferForm (props) {
     onNameChange,
     onPhoneChange,
     onEmailChange,
-    onOfferSubmitClick
+    onOfferSubmitClick,
   } = props;
 
   const handleOfferSubmit = (evt) => {
@@ -52,10 +53,10 @@ function OfferForm (props) {
         phone: phone,
         email: email,
       };
-    onOfferSubmitClick(offer);
-    localStorage.setItem(`offerData-${id}`, JSON.stringify(offer));
+      onOfferSubmitClick(offer);
+      localStorage.setItem(`offerData-${id}`, JSON.stringify(offer));
     }
-  }
+  };
 
   return (
     <div className={styles['offer-form']}>
@@ -93,7 +94,7 @@ function OfferForm (props) {
               Первоначальный взнос
             </dt>
             <dd className={styles['offer-form__item-value']}>
-            {`${firstPayment} ${getWordDeclension(firstPayment, DeclensionRub)}`}
+              {`${firstPayment} ${getWordDeclension(firstPayment, DeclensionRub)}`}
             </dd>
           </div>
           <div className={styles['offer-form__item']}>
@@ -144,13 +145,13 @@ function OfferForm (props) {
                 text="Отправить"
                 modificator={'small'}
                 onClick={handleOfferSubmit}
-                />
+              />
             </div>
           </div>
         </form>
-      {
-        isSuccessPopupView &&  <SuccessPopup />
-      }
+        {
+          isSuccessPopupView &&  <SuccessPopup />
+        }
       </div>
     </div>
   );
@@ -168,21 +169,37 @@ const mapStateToProps = (state) => ({
   email: getEmailFromOffer(state),
 });
 
+OfferForm.propTypes = {
+  creditTarget: PropTypes.string,
+  totalCost: PropTypes.number,
+  firstPayment: PropTypes.number,
+  term: PropTypes.number,
+  isSuccessPopupView: PropTypes.bool,
+  id: PropTypes.number,
+  name: PropTypes.string,
+  phone: PropTypes.string,
+  email: PropTypes.string,
+  onNameChange: PropTypes.func,
+  onPhoneChange: PropTypes.func,
+  onEmailChange: PropTypes.func,
+  onOfferSubmitClick: PropTypes.func,
+};
+
 const mapDispatchToProps = (dispatch) => ({
   onNameChange (evt) {
-    dispatch(ActionCreator.setNameFromOffer(evt.target.value))
+    dispatch(ActionCreator.setNameFromOffer(evt.target.value));
   },
   onPhoneChange (evt) {
-    dispatch(ActionCreator.setPhoneFromOffer(evt.target.value))
+    dispatch(ActionCreator.setPhoneFromOffer(evt.target.value));
   },
   onEmailChange (evt) {
-    dispatch(ActionCreator.setEmailFromOffer(evt.target.value))
+    dispatch(ActionCreator.setEmailFromOffer(evt.target.value));
   },
   onOfferSubmitClick (data) {
     dispatch(ActionCreator.setSuccesPopupView(true));
     dispatch(ActionCreator.setOffer(data));
-    dispatch(ActionCreator.incIdOffer())
-  }
-})
+    dispatch(ActionCreator.incIdOffer());
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(OfferForm);

@@ -22,32 +22,40 @@ function Slider (props) {
   }, [activeSlideIndex]);
 
   const handleSlideButtonClick = (evt) => {
-    const slide = slides.find((item, index) => index === Number(evt.target.value))
-    setActiveSlideIndex(Number(evt.target.value))
+    const slide = slides.find((item, index) => index === Number(evt.target.value));
+    setActiveSlideIndex(Number(evt.target.value));
     setActiveSlide(slide);
-  }
+  };
+
+  const isChecked = (activeIndex, currentIndex) => {
+    if (activeIndex === currentIndex) {
+      return true;
+    }
+    return false;
+  };
 
   return (
     <section className={styles['slider']}>
       {activeSlide}
       <fieldset className={styles['slider__controls']}>
-      {
-        slides.map((item, index) => (
-          <label key={index} htmlFor={index} className={styles['slider__label-control']}>
-            <input
-              type='radio'
-              value={index}
-              id={index}
-              name='slider-control'
-              className={`${globalStyles['visually-hidden']} ${styles['slider__control']}`}
-              checked={activeSlideIndex === index ? true : false}
-              onChange={handleSlideButtonClick}
-            >
-            </input>
-            <span className={styles['slider__indicator']}></span>
-          </label>
+        {
+          slides.map((item, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <label key={index} htmlFor={index} className={styles['slider__label-control']}>
+              <input
+                type='radio'
+                value={index}
+                id={index}
+                name='slider-control'
+                className={`${globalStyles['visually-hidden']} ${styles['slider__control']}`}
+                checked={isChecked(activeSlideIndex, index)}
+                onChange={handleSlideButtonClick}
+              >
+              </input>
+              <span className={styles['slider__indicator']}></span>
+            </label>
           ))
-      }
+        }
       </fieldset>
     </section>
   );

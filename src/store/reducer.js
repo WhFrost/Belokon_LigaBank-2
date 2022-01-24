@@ -6,7 +6,7 @@ import {offerReducer} from './offer/offer-reducer';
 const rootReducer = combineReducers({
   user: userReducer,
   calc: calculatorReducer,
-  offer: offerReducer
+  offer: offerReducer,
 });
 
 export {

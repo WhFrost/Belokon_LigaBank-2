@@ -62,16 +62,16 @@ const ActionCreator = {
     payload: cost,
   }),
   incCostTarget: () => ({
-    type: ActionType.INC_COST_TARGET
+    type: ActionType.INC_COST_TARGET,
   }),
   decCostTarget: () => ({
-    type: ActionType.DEC_COST_TARGET
+    type: ActionType.DEC_COST_TARGET,
   }),
   setMinFirstPayment: () => ({
-    type: ActionType.SET_MIN_FIRST_PAYMENT
+    type: ActionType.SET_MIN_FIRST_PAYMENT,
   }),
   setMaxFirstPayment: () => ({
-    type: ActionType.SET_MAX_FIRST_PAYMENT
+    type: ActionType.SET_MAX_FIRST_PAYMENT,
   }),
   setFirstPayment: (payment) => ({
     type: ActionType.SET_FIRST_PAYMENT,
@@ -132,9 +132,9 @@ const ActionCreator = {
   clearOfferData: () => ({
     type: ActionType.CLEAR_OFFER_DATA,
   }),
-}
+};
 
 export {
   ActionType,
   ActionCreator
-}
+};

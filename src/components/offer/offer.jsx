@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import globalStyles from '../app/app.module.scss';
 import styles from './offer.module.scss';
 import {connect} from 'react-redux';
@@ -11,7 +12,7 @@ import {
   getCreditTarget,
   getTotalCost,
   getTerm,
-  getPercentRate,
+  getPercentRate
 } from '../../store/calculator/selectors';
 import {
   DeclensionRub,
@@ -27,7 +28,7 @@ function Offer (props) {
     totalCost,
     term,
     percentRate,
-    onClickSubmitButton
+    onClickSubmitButton,
   } = props;
 
   const monthlyPayment = getMonthlyPayment(totalCost, percentRate, term);
@@ -35,7 +36,7 @@ function Offer (props) {
 
   const handleClickSubmit = () => {
     onClickSubmitButton(true);
-  }
+  };
 
   return (
     <div className={styles['offer']}>
@@ -102,17 +103,25 @@ function Offer (props) {
   );
 }
 
+Offer.propTypes = {
+  creditTarget: PropTypes.string,
+  totalCost: PropTypes.number,
+  term: PropTypes.number,
+  percentRate: PropTypes.number,
+  onClickSubmitButton: PropTypes.func,
+};
+
 const mapStateToProps = (state) => ({
   creditTarget: getCreditTarget(state),
   totalCost: getTotalCost(state),
   term: getTerm(state),
-  percentRate: getPercentRate(state)
+  percentRate: getPercentRate(state),
 });
 
 const mapDispatchToProps = (dispatch) =>({
   onClickSubmitButton(status)  {
-    dispatch(ActionCreator.setOfferStatus(status))
-  }
-})
+    dispatch(ActionCreator.setOfferStatus(status));
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Offer);

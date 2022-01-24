@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './map.module.scss';
 import globalStyles from '../app/app.module.scss';
 import {GoogleMap, LoadScript, Marker} from '@react-google-maps/api';
-import mapPin from '../../assets/img/map-pin.svg'
+import mapPin from '../../assets/img/map-pin.svg';
 import {
   DEFAULT_MAP_LAT,
   DEFAULT_MAP_LNG,
@@ -35,13 +36,20 @@ function Map (props) {
             {
               mapPins.map((item) => (
                 <Marker key={item.city} position={item.coords} icon={mapPin} />
-                ))
-              }
+              ))
+            }
           </GoogleMap>
         </LoadScript>
       </div>
     </section>
-  )
+  );
 }
+
+Map.propTypes = {
+  mapPins: PropTypes.arrayOf(PropTypes.shape({
+    city: PropTypes.string,
+    coords: PropTypes.objectOf(PropTypes.number),
+  })),
+};
 
 export default Map;

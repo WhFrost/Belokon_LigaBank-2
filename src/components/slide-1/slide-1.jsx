@@ -33,7 +33,7 @@ function FirstSlide () {
             width='337'
             height='224'
             alt='Белая карта'
-        />
+          />
         </div>
       </div>
     </section>

@@ -9,5 +9,5 @@ export {
   getIdFromOffer,
   getNameFromOffer,
   getPhoneFromOffer,
-  getEmailFromOffer,
-}
+  getEmailFromOffer
+};
