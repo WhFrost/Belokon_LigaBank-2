@@ -78,6 +78,23 @@
     }
   }
 
+  &--success-close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+
+    width: 20px;
+    height: 20px;
+    padding: 0;
+
+    background: url('../../assets/img/close.svg') no-repeat;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1.0;
+    }
+  }
+
   &--show-password {
     position: absolute;
     top: 50px;

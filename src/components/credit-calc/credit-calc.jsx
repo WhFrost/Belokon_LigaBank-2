@@ -29,11 +29,13 @@ import {
   getTerm,
   getUseMotherCapital,
   getUseInsuranceAuto,
-  getUseInsuranceLife
+  getUseInsuranceLife,
+  getOfferStatus
 } from '../../store/calculator/selectors';
 import {ActionCreator} from '../../store/action';
 import Button from '../button/button';
 import Offer from '../offer/offer';
+import OfferForm from '../offer-form/offer-form';
 import {getWordDeclension} from '../../utils';
 
 function CreditCalc (props) {
@@ -50,6 +52,7 @@ function CreditCalc (props) {
     useInsuranceAuto,
     useInsuranceLife,
     firstPaymentPercent,
+    isOfferValid,
     onTargetChange,
     onCostChange,
     onFirstPaymentChange,
@@ -219,6 +222,9 @@ function CreditCalc (props) {
          {
            creditTarget !== null && <Offer />
          }
+         {
+           isOfferValid && <OfferForm />
+         }
       </div>
     </section>
   );
@@ -235,6 +241,7 @@ const mapStateToProps = (state) => ({
   useMotherCapital: getUseMotherCapital(state),
   useInsuranceAuto: getUseInsuranceAuto(state),
   useInsuranceLife: getUseInsuranceLife(state),
+  isOfferValid: getOfferStatus(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

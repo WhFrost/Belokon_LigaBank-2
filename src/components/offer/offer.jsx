@@ -2,7 +2,6 @@ import React from 'react';
 import globalStyles from '../app/app.module.scss';
 import styles from './offer.module.scss';
 import {connect} from 'react-redux';
-import {getTotalCost} from '../../store/calculator/selectors';
 import {
   getMonthlyPayment,
   getRequiredIncom,
@@ -10,6 +9,7 @@ import {
 } from '../../utils';
 import {
   getCreditTarget,
+  getTotalCost,
   getTerm,
   getPercentRate,
 } from '../../store/calculator/selectors';

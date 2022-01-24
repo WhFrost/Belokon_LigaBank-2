@@ -27,15 +27,18 @@ function Map (props) {
   return (
     <section className={styles['map']} id='map'>
       <div className={`${globalStyles['container']} ${styles['map__wrapper']}`}>
-      <LoadScript googleMapsApiKey={API_KEY}>
-        <GoogleMap mapContainerStyle={mapContainerStyle} center={defaultCenter} zoom={DEFAULT_MAP_ZOOM}>
-          {
-            mapPins.map((item) => (
-              <Marker key={item.city} position={item.coords} icon={mapPin} />
-              ))
-            }
-        </GoogleMap>
-      </LoadScript>
+        <h2 className={`${globalStyles['title']} ${styles['map__title']}`}>
+          Отделения Лига Банка
+        </h2>
+        <LoadScript googleMapsApiKey={API_KEY}>
+          <GoogleMap mapContainerStyle={mapContainerStyle} center={defaultCenter} zoom={DEFAULT_MAP_ZOOM}>
+            {
+              mapPins.map((item) => (
+                <Marker key={item.city} position={item.coords} icon={mapPin} />
+                ))
+              }
+          </GoogleMap>
+        </LoadScript>
       </div>
     </section>
   )

@@ -19,6 +19,14 @@ const ActionType = {
   SET_PERCENT_RATE: 'credit/setPercentRate',
   SET_OFFER_STATUS: 'credit/setOfferStatus',
   CLEAR_CALC_DATA: 'credit/clearData',
+  SET_SUCCESS_POPUP_VIEW: 'offer/isSuccesPopupView',
+  SET_ID_OFFER: 'offer/setIdOffer',
+  INC_ID_OFFER: 'offer/incIdOffer',
+  SET_NAME_FROM_OFFER: 'offer/setNameFromOffer',
+  SET_PHONE_FROM_OFFER: 'offer/setPhoneFromOffer',
+  SET_EMAIL_FROM_OFFER: 'offer/setEmailFromOffer',
+  SET_OFFER: 'offer/setOffer',
+  CLEAR_OFFER_DATA: 'offer/clearData',
 };
 
 const ActionCreator = {
@@ -94,6 +102,35 @@ const ActionCreator = {
   }),
   clearCalcData: () => ({
     type: ActionType.CLEAR_CALC_DATA,
+  }),
+  setSuccesPopupView: (status) => ({
+    type: ActionType.SET_SUCCESS_POPUP_VIEW,
+    payload: status,
+  }),
+  setIdOffer: () => ({
+    type: ActionType.SET_ID_OFFER,
+  }),
+  incIdOffer: () => ({
+    type: ActionType.INC_ID_OFFER,
+  }),
+  setNameFromOffer: (name) => ({
+    type: ActionType.SET_NAME_FROM_OFFER,
+    payload: name,
+  }),
+  setPhoneFromOffer: (phone) => ({
+    type: ActionType.SET_PHONE_FROM_OFFER,
+    payload: phone,
+  }),
+  setEmailFromOffer: (email) => ({
+    type: ActionType.SET_EMAIL_FROM_OFFER,
+    payload: email,
+  }),
+  setOffer: (offer) => ({
+    type: ActionType.SET_OFFER,
+    payload: offer,
+  }),
+  clearOfferData: () => ({
+    type: ActionType.CLEAR_OFFER_DATA,
   }),
 }
 

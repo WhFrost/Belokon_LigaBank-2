@@ -10,8 +10,18 @@
   grid-template-columns: 2fr 1fr;
 }
 
+.credit-calc__calc {
+  margin-bottom: 70px;
+}
+
 .credit-calc__title {
   margin-bottom: 70px;
+
+  font-weight: 700;
+  font-size: 41px;
+  line-height: 57px;
+  text-align: left;
+  font-style: normal;
 
   grid-column: span 2;
 
