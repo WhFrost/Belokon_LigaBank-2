@@ -18,6 +18,7 @@ function Slider (props) {
     }, 4000);
     setActiveSlide(slides[activeSlideIndex]);
     return () => clearInterval(interval);
+    // eslint-disable-next-line
   }, [activeSlideIndex]);
 
   const handleSlideButtonClick = (evt) => {
