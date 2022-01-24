@@ -1,7 +1,7 @@
 .success-popup {
   position: absolute;
-  top: calc(50vh - 493px/2);
-  left: calc(50vw - 544px/2);
+  top: calc(50vh - 228px/2);
+  left: calc(50vw - 500px/2);
   z-index: 20;
 
   width: 500px;
@@ -36,7 +36,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 25px;
-  text-align: left;
+  text-align: center;
   color: #394959;
   font-style: normal;
 }

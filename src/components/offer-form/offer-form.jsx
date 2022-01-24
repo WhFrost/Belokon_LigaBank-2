@@ -148,10 +148,10 @@ function OfferForm (props) {
             </div>
           </div>
         </form>
-      </div>
       {
         isSuccessPopupView &&  <SuccessPopup />
       }
+      </div>
     </div>
   );
 }
