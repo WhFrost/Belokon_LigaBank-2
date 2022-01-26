@@ -17,6 +17,7 @@ const ActionType = {
   SET_USE_INSURANCE_AUTO: 'credit/setUseInsuranceAuto',
   SET_USE_INSURANCE_LIFE: 'credit/setUseInsuranceLife',
   SET_PERCENT_RATE: 'credit/setPercentRate',
+  SET_PERCENT_RATE_MOD: 'credit/setPercentRateMod',
   SET_OFFER_STATUS: 'credit/setOfferStatus',
   CLEAR_CALC_DATA: 'credit/clearData',
   SET_SUCCESS_POPUP_VIEW: 'offer/isSuccesPopupView',
@@ -93,8 +94,13 @@ const ActionCreator = {
     type: ActionType.SET_USE_INSURANCE_LIFE,
     payload: insurance,
   }),
-  setPercentRate: () => ({
+  setPercentRate: (percentRate) => ({
     type: ActionType.SET_PERCENT_RATE,
+    payload: percentRate,
+  }),
+  setPercentRateMod: (percentRateMod) => ({
+    type: ActionType.SET_PERCENT_RATE_MOD,
+    payload: percentRateMod,
   }),
   setOfferStatus: (status) => ({
     type: ActionType.SET_OFFER_STATUS,

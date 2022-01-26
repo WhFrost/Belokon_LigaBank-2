@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import globalStyles from '../app/app.module.scss';
 import styles from './credit-calc.module.scss';
@@ -31,9 +31,20 @@ import {
   getUseMotherCapital,
   getUseInsuranceAuto,
   getUseInsuranceLife,
+  getPercentRateMod,
   getOfferStatus
 } from '../../store/calculator/selectors';
 import {ActionCreator} from '../../store/action';
+import {
+  MIN_PERCENT_RATE_FOR_MORTGAGE,
+  MAX_PERCENT_RATE_FOR_MORTGAGE,
+  MIN_PERCENT_RATE_FOR_AUTO,
+  MAX_PERCENT_RATE_FOR_AUTO,
+  MIN_PERCENT_MOD_RATE_FOR_AUTO,
+  MAX_PERCENT_MOD_RATE_FOR_AUTO,
+  MIN_FIRST_PAYMENT_MORTGAGE_FOR_PERCENT_RATE,
+  MIN_COST_AUTO_FOR_PERCENT_RATE
+} from '../../const';
 import Button from '../button/button';
 import Offer from '../offer/offer';
 import OfferForm from '../offer-form/offer-form';
@@ -53,6 +64,7 @@ function CreditCalc (props) {
     useInsuranceAuto,
     useInsuranceLife,
     firstPaymentPercent,
+    percentRateMod,
     isOfferValid,
     onTargetChange,
     onCostChange,
@@ -61,7 +73,36 @@ function CreditCalc (props) {
     onMotherCapitalChange,
     onInsuranceAutoChange,
     onInsuranceLifeChange,
+    onPercentRateChange,
+    onPercentRateModChange,
   } = props;
+
+  useEffect(() => {
+    if (creditTarget === 'MORTGAGE') {
+      firstPaymentPercent < MIN_FIRST_PAYMENT_MORTGAGE_FOR_PERCENT_RATE
+        ? onPercentRateChange(MIN_PERCENT_RATE_FOR_MORTGAGE)
+        : onPercentRateChange(MAX_PERCENT_RATE_FOR_MORTGAGE);
+    }
+    if (creditTarget === 'AUTO' && percentRateMod === 0) {
+      costTarget < MIN_COST_AUTO_FOR_PERCENT_RATE
+        ? onPercentRateChange(MAX_PERCENT_RATE_FOR_AUTO)
+        : onPercentRateChange(MIN_PERCENT_RATE_FOR_AUTO);
+    }
+    // eslint-disable-next-line
+  }, [creditTarget, costTarget, firstPaymentPercent, percentRateMod]);
+
+  useEffect(() => {
+    if (useInsuranceAuto && useInsuranceLife) {
+      onPercentRateModChange(MAX_PERCENT_MOD_RATE_FOR_AUTO);
+      onPercentRateChange(MAX_PERCENT_MOD_RATE_FOR_AUTO);
+    } else if (useInsuranceAuto || useInsuranceLife) {
+      onPercentRateModChange(MIN_PERCENT_MOD_RATE_FOR_AUTO);
+      onPercentRateChange(MIN_PERCENT_MOD_RATE_FOR_AUTO);
+    } else {
+      onPercentRateModChange(0);
+    }
+    // eslint-disable-next-line
+  }, [useInsuranceAuto, useInsuranceLife]);
 
   return (
     <section className={styles['credit-calc']} id='credit-calc'>
@@ -242,6 +283,7 @@ CreditCalc.propTypes ={
   useMotherCapital: PropTypes.bool,
   useInsuranceAuto: PropTypes.bool,
   useInsuranceLife: PropTypes.bool,
+  percentRateMod: PropTypes.number,
   isOfferValid: PropTypes.bool,
   onTargetChange: PropTypes.func,
   onCostChange: PropTypes.func,
@@ -252,6 +294,8 @@ CreditCalc.propTypes ={
   onMotherCapitalChange: PropTypes.func,
   onInsuranceAutoChange: PropTypes.func,
   onInsuranceLifeChange: PropTypes.func,
+  onPercentRateChange: PropTypes.func,
+  onPercentRateModChange: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
@@ -265,6 +309,7 @@ const mapStateToProps = (state) => ({
   useMotherCapital: getUseMotherCapital(state),
   useInsuranceAuto: getUseInsuranceAuto(state),
   useInsuranceLife: getUseInsuranceLife(state),
+  percentRateMod: getPercentRateMod(state),
   isOfferValid: getOfferStatus(state),
 });
 
@@ -274,32 +319,27 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.setMinFirstPayment());
     dispatch(ActionCreator.setMaxFirstPayment());
     dispatch(ActionCreator.setFirstPayment());
-    dispatch(ActionCreator.setPercentRate());
   },
   onCostChange(evt) {
     dispatch(ActionCreator.setCostTarget(Number(evt.target.value.replace(/\D/g, ''))));
     dispatch(ActionCreator.setMinFirstPayment());
     dispatch(ActionCreator.setMaxFirstPayment());
     dispatch(ActionCreator.setFirstPayment());
-    dispatch(ActionCreator.setPercentRate());
   },
   onDecCostButtonClick() {
     dispatch(ActionCreator.decCostTarget());
     dispatch(ActionCreator.setMinFirstPayment());
     dispatch(ActionCreator.setMaxFirstPayment());
     dispatch(ActionCreator.setFirstPayment());
-    dispatch(ActionCreator.setPercentRate());
   },
   onIncCostButtonClick() {
     dispatch(ActionCreator.incCostTarget());
     dispatch(ActionCreator.setMinFirstPayment());
     dispatch(ActionCreator.setMaxFirstPayment());
     dispatch(ActionCreator.setFirstPayment());
-    dispatch(ActionCreator.setPercentRate());
   },
   onFirstPaymentChange(evt) {
     dispatch(ActionCreator.setFirstPayment(Number(evt.target.value)));
-    dispatch(ActionCreator.setPercentRate());
   },
   onTermChange(evt) {
     dispatch(ActionCreator.setTerm(Number(evt.target.value.replace(/\D/g, ''))));
@@ -309,11 +349,15 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onInsuranceAutoChange(evt) {
     dispatch(ActionCreator.setUseInsuranceAuto(evt.target.checked));
-    dispatch(ActionCreator.setPercentRate());
   },
   onInsuranceLifeChange(evt) {
     dispatch(ActionCreator.setUseInsuranceLife(evt.target.checked));
-    dispatch(ActionCreator.setPercentRate());
+  },
+  onPercentRateChange(percentRate) {
+    dispatch(ActionCreator.setPercentRate(percentRate));
+  },
+  onPercentRateModChange(mod) {
+    dispatch(ActionCreator.setPercentRateMod(mod));
   },
   clearData() {
     dispatch(ActionCreator.clearCalcData());

@@ -115,6 +115,7 @@ function OfferForm (props) {
                 id="name"
                 className={`${styles['offer-form__field']} ${styles['offer-form__field--name']}`}
                 placeholder="ФИО"
+                required
                 autoFocus
                 value={name}
                 onChange={onNameChange}
@@ -123,10 +124,12 @@ function OfferForm (props) {
             <div className={`${styles['offer-form__field-wrapper']} ${styles['offer-form__field-wrapper--group-fields']}`}>
               <label htmlFor="tel" className={globalStyles['visually-hidden']}></label>
               <input
-                type="tel"
+                type="number"
                 id="tel"
                 className={`${styles['offer-form__field']} ${styles['offer-form__field--tel']}`}
                 placeholder="Телефон"
+                pattern="[0-9]*"
+                required
                 value={phone}
                 onChange={onPhoneChange}
               />
@@ -136,6 +139,7 @@ function OfferForm (props) {
                 id="email"
                 className={`${styles['offer-form__field']} ${styles['offer-form__field--email']}`}
                 placeholder="E-mail"
+                required
                 value={email}
                 onChange={onEmailChange}
               />
