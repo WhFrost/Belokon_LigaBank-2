@@ -106,7 +106,7 @@ function OfferForm (props) {
             </dd>
           </div>
         </dl>
-        <form action="" className={styles['offer-form__form']}>
+        <form className={styles['offer-form__form']}>
           <div className={styles['offer-form__form-wrapper']}>
             <div className={styles['offer-form__field-wrapper']}>
               <label htmlFor="name" className={globalStyles['visually-hidden']}></label>

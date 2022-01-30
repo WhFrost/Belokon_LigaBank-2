@@ -1,6 +1,6 @@
 import React from 'react';
 import globalStyles from '../app/app.module.scss';
-import styles from './slide-2.module.scss';
+import styles from './second-slide.module.scss';
 import secondSlidePhoto1x from '../../assets/img/slide-2@1x.png';
 import secondSlidePhoto2x from '../../assets/img/slide-2@2x.png';
 
@@ -17,6 +17,7 @@ function SecondSlide () {
         <div className={styles['second-slide__wrapper--img']}>
           <img
             srcSet={`${secondSlidePhoto1x} 1x, ${secondSlidePhoto2x} 2x`}
+            src={secondSlidePhoto1x}
             className={styles['second-slide__content-img']}
             width='380'
             height='400'

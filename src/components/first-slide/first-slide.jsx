@@ -1,6 +1,6 @@
 import React from 'react';
 import globalStyles from '../app/app.module.scss';
-import styles from './slide-1.module.scss';
+import styles from './first-slide.module.scss';
 import blackCard1x from '../../assets/img/black-card@1x.png';
 import blackCard2x from '../../assets/img/black-card@2x.png';
 import whiteCard1x from '../../assets/img/white-card@1x.png';
@@ -22,6 +22,7 @@ function FirstSlide () {
         <div className={styles['first-slide__wrapper--img']}>
           <img
             srcSet={`${blackCard1x} 1x, ${blackCard2x} 2x`}
+            src={blackCard1x}
             className={styles['first-slide__cards--black']}
             width='337'
             height='224'
@@ -29,6 +30,7 @@ function FirstSlide () {
           />
           <img
             srcSet={`${whiteCard1x} 1x, ${whiteCard2x} 2x`}
+            src={whiteCard1x}
             className={styles['first-slide__cards--white']}
             width='337'
             height='224'

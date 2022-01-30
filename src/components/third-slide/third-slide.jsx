@@ -1,6 +1,6 @@
 import React from 'react';
 import globalStyles from '../app/app.module.scss';
-import styles from './slide-3.module.scss';
+import styles from './third-slide.module.scss';
 import thirdSlidePhoto1x from '../../assets/img/slide-3@1x.png';
 import thirdSlidePhoto2x from '../../assets/img/slide-3@2x.png';
 
@@ -20,6 +20,7 @@ function ThirdSlide () {
         <div className={styles['third-slide__wrapper--img']}>
           <img
             srcSet={`${thirdSlidePhoto1x} 1x, ${thirdSlidePhoto2x} 2x`}
+            src={thirdSlidePhoto1x}
             className={styles['third-slide__content-img']}
             width='380'
             height='400'

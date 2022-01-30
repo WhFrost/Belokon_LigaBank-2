@@ -6,7 +6,10 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  align-items: center;
   padding-top: 23px;
   padding-bottom: 34px;
+
+  @media (min-width: 768px) {
+    padding-bottom: 24px;
+  }
 }

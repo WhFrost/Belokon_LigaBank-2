@@ -114,7 +114,7 @@ function CreditCalc (props) {
           <h3 className={`${globalStyles['title']} ${styles['credit-calc__title--step']}`}>
             Шаг 1. Цель кредита
           </h3>
-          <form action="" className={styles['credit-calc__form']}>
+          <form className={styles['credit-calc__form']}>
             <div className={styles['credit-calc__form-wrapper']}>
               <select
                 name="credit-target"

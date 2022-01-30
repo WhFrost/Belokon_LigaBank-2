@@ -12,8 +12,8 @@ function FeatureImage (props) {
 
   return (
     <img
-      width={'440px'}
-      height={'290px'}
+      width={440}
+      height={290}
       className={`${globalStyles['image']} ${styles['feature-image']}`}
       srcSet={`${srcImage} 1x, ${srcRetinaImage} 2x`}
       src={srcImage}
