@@ -16,6 +16,12 @@
   padding-top: 101px;
   padding-bottom: 115px;
   padding-left: 170px;
+
+  @media (max-width: 1023px) {
+    padding-top: 76px;
+    padding-bottom: 76px;
+    padding-left: 41px;
+  }
 }
 
 .first-slide__title {
@@ -26,6 +32,11 @@
   line-height: 63px;
   color: #f6f7ff;
   font-style: normal;
+
+  @media (max-width: 1023px) {
+    font-size: 46px;
+    line-height: 54px;
+  }
 }
 
 .first-slide__description {
@@ -38,6 +49,11 @@
   line-height: 26px;
   color: #e0e1ea;
   font-style: normal;
+
+  @media (max-width: 1023px) {
+    font-size: 18px;
+    line-height: 21px;
+  }
 }
 
 .first-slide__link {
@@ -57,6 +73,16 @@
 
   background-color: #f6f7ff;
   border-radius: 4px;
+
+  @media (max-width: 1023px) {
+    padding-top: 18px;
+    padding-right: 31px;
+    padding-bottom: 19px;
+    padding-left: 31px;
+
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 
 .first-slide__wrapper--img {

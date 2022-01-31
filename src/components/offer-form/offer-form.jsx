@@ -144,7 +144,7 @@ function OfferForm (props) {
                 onChange={onEmailChange}
               />
             </div>
-            <div className={styles['offer-form__field-wrapper']}>
+            <div className={`${styles['offer-form__field-wrapper']} ${styles['offer-form__field-wrapper--submit']}`}>
               <Button
                 text="Отправить"
                 modificator={'small'}

@@ -11,6 +11,12 @@ import insuranceRetinaImage from './assets/img/insurance@2x.jpg';
 import onlineServicesImage from './assets/img/online-services@1x.jpg';
 import onlineServicesRetinaImage from './assets/img/online-services@2x.jpg';
 
+const MIN_WIDTH_DESKTOP = '1024px';
+const MAX_WIDTH_TABLET = '1023px';
+const MIN_WIDTH_TABLET = '768px';
+const MAX_WIDTH_PHONE = '767px';
+const MIN_WIDTH_PHONE = '320px';
+
 const HEADER_NAV_ITEMS = [
   {
     title: 'Услуги',
@@ -176,8 +182,12 @@ const MAP_PINS = [
 const DEFAULT_MAP_LAT = 56.2238661;
 const DEFAULT_MAP_LNG = 57.1238747;
 const DEFAULT_MAP_ZOOM = 5.2;
-const MAP_WIDTH = '1170px';
-const MAP_HEIGHT = '462px';
+const MAP_WIDTH_DESKTOP = '1170px';
+const MAP_HEIGHT_DESKTOP = '462px';
+const MAP_WIDTH_TABLET = '678px';
+const MAP_HEIGHT_TABLET = '462px';
+const MAP_WIDTH_PHONE = '320px';
+const MAP_HEIGHT_PHONE = '381px';
 
 const CreditTarget = {
   MORTGAGE: 'Ипотечное кредитование',
@@ -228,6 +238,11 @@ const DeclensionYears = [
 ];
 
 export {
+  MIN_WIDTH_DESKTOP,
+  MAX_WIDTH_TABLET,
+  MIN_WIDTH_TABLET,
+  MAX_WIDTH_PHONE,
+  MIN_WIDTH_PHONE,
   HEADER_NAV_ITEMS,
   COMPANY_INFO,
   FOOTER_NAV_ITEMS,
@@ -238,8 +253,12 @@ export {
   DEFAULT_MAP_LNG,
   MAP_PINS,
   DEFAULT_MAP_ZOOM,
-  MAP_WIDTH,
-  MAP_HEIGHT,
+  MAP_WIDTH_DESKTOP,
+  MAP_HEIGHT_DESKTOP,
+  MAP_WIDTH_TABLET,
+  MAP_HEIGHT_TABLET,
+  MAP_WIDTH_PHONE,
+  MAP_HEIGHT_PHONE,
   CreditTarget,
   creditTargets,
   MIN_COST_MORTGAGE,

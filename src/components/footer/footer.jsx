@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import MediaQuery from 'react-responsive';
 import {nanoid} from 'nanoid';
 import globalStyles from '../app/app.module.scss';
 import styles from './footer.module.scss';
 import Logo from '../logo/logo';
+import {
+  MIN_WIDTH_DESKTOP,
+  MAX_WIDTH_TABLET
+} from '../../const';
 
 function Footer(props) {
   const {footerNavItems, companyInfo} = props;
@@ -27,14 +32,26 @@ function Footer(props) {
       <div
         className={`${styles['footer__wrapper']} ${globalStyles['container']}`}
       >
-        <div className={styles['footer__address-wrapper']}>
+        <MediaQuery minWidth={MIN_WIDTH_DESKTOP}>
+          <div className={styles['footer__address-wrapper']}>
+            <Logo />
+            <address className={styles['footer__address']}>
+              {location} <br />
+              {license} <br />
+            </address>
+            <p className={styles['footer__copyright']}>{copyright}</p>
+          </div>
+        </MediaQuery>
+        <MediaQuery maxWidth={MAX_WIDTH_TABLET}>
           <Logo />
-          <address className={styles['footer__address']}>
-            {location} <br />
-            {license} <br />
-          </address>
-          <p className={styles['footer__copyright']}>{copyright}</p>
-        </div>
+          <div className={styles['footer__address-wrapper']}>
+            <address className={styles['footer__address']}>
+              {location} <br />
+              {license} <br />
+            </address>
+            <p className={styles['footer__copyright']}>{copyright}</p>
+          </div>
+        </MediaQuery>
         <div className={styles['footer__nav']}>
           <ul className={`${globalStyles['list']} ${styles['footer__nav-list']}`}>
             {footerNavItems.map(({title, link}) => (

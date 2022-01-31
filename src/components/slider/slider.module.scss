@@ -3,6 +3,11 @@
 
   min-height: 400px;
   margin-bottom: 60px;
+
+  @media (max-width: 1023px) {
+    min-height: 300px;
+    margin-bottom: 0;
+  }
 }
 
 .slider__controls {
@@ -17,6 +22,10 @@
   padding: 0;
 
   border: none;
+
+  @media (max-width: 1023px) {
+    bottom: 15px;
+  }
 }
 
 

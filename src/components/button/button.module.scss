@@ -31,7 +31,6 @@
 
   &--small {
     width: 198px;
-    max-width: 198px;
     padding-top: 20px;
     padding-right: 30px;
     padding-bottom: 20px;
@@ -39,6 +38,10 @@
 
     font-size: 16px;
     line-height: 19px;
+
+    @media (max-width: 1023px) {
+      width: 100%;
+    }
   }
 
   &--large {
@@ -50,6 +53,10 @@
 
     font-size: 16px;
     line-height: 140%;
+
+    @media (max-width: 1023px) {
+      width: 100%;
+    }
   }
 
   &--submit {

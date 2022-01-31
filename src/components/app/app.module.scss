@@ -52,13 +52,22 @@
 }
 
 body {
-  min-width: 1366px;
+  min-width: 1024px;
   height: 100vh;
   margin: 0;
+  margin-right: auto;
+  margin-left: auto;
 
   font-weight: normal;
   font-family: 'Roboto', 'Arial', sans-serif;
   font-style: normal;
+
+  @media (max-width: 1023px) {
+    min-width: 768px;
+  }
+  @media (max-width: 767px) {
+    min-width: 320px;
+  }
 
   > div {
     display: grid;
@@ -66,15 +75,22 @@ body {
 
     grid-template-rows: auto 1fr auto;
   }
-  @media (min-width: 768px) {
-    min-width: 768px;
-  }
 }
 
 .container {
   box-sizing: border-box;
-  width: 1170px;
   margin: 0 auto;
+  padding-right: 98px;
+  padding-left: 98px;
+
+  @media (max-width: 1023px) {
+    padding-right: 45px;
+    padding-left: 45px;
+  }
+  @media (max-width: 767px) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
 }
 
 .title {

@@ -7,6 +7,10 @@
   padding-left: 58px;
 
   background-color: #f6f7ff;
+
+  @media (max-width: 1023px) {
+    width: 100%;
+  }
 }
 .offer__title {
   margin-bottom: 40px;

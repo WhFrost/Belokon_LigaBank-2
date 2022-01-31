@@ -6,6 +6,12 @@
   display: flex;
   padding-top: 49px;
   padding-bottom: 60px;
+
+  @media (max-width: 1023px) {
+    display: grid;
+
+    grid-template-columns: repeat(2, 50%);
+  }
 }
 
 .footer__address-wrapper {
@@ -14,10 +20,20 @@
   flex-direction: column;
   max-width: 252px;
   margin-right: 81px;
+
+  @media (max-width: 1023px) {
+    margin: 0;
+    padding-top: 32px;
+
+    grid-column: 1;
+    grid-row: 3;
+  }
 }
 
 .footer__address,
 .footer__copyright {
+  margin: 0;
+
   font-weight: normal;
   font-size: 12px;
   line-height: 17px;
@@ -27,6 +43,10 @@
 
 .footer__address {
   padding-top: 16px;
+
+  @media (max-width: 1023px) {
+    padding-top: 0;
+  }
 }
 
 .footer__nav {
@@ -34,6 +54,14 @@
   max-width: 145px;
   margin-right: 82px;
   padding-top: 7px;
+
+  @media (max-width: 1023px) {
+    margin: 0;
+    padding-top: 32px;
+
+    grid-column: 1;
+    grid-row: 2;
+  }
 }
 
 .footer__nav-list {
@@ -43,6 +71,10 @@
 
 .footer__nav-item:not(:last-child) {
   padding-bottom: 9px;
+
+  @media (max-width: 1023px) {
+    padding-bottom: 20px;
+  }
 }
 
 .footer__nav-link {
@@ -70,22 +102,42 @@
 }
 
 .footer__phones-wrapper {
-  width: 431px;
+  max-width: 431px;
   margin-right: 78px;
   padding-top: 10px;
+
+  @media (max-width: 1023px) {
+    margin: 0;
+    padding: 0;
+
+    grid-row: span 2;
+  }
 }
 
 .footer__phones-list {
   display: flex;
   justify-content: flex-start;
+
+  @media (max-width: 1023px) {
+    flex-direction: column;
+  }
 }
 
 .footer__phones-item {
   max-width: 196px;
+
+  @media (max-width: 1023px) {
+    margin-right: 0;
+    margin-bottom: 32px;
+  }
 }
 
 .footer__phones-item:first-child {
   margin-right: 79px;
+
+  @media (max-width: 1023px) {
+    margin-right: 0;
+  }
 }
 
 .footer__phones-item--mobile::before {
@@ -136,16 +188,30 @@
   line-height: 17px;
   color: #707c87;
   font-style: normal;
+
+  @media (max-width: 1023px) {
+    margin: 0;
+    margin-top: 10px;
+    margin-left: 29px;
+  }
 }
 
 .footer__socials {
   padding-top: 12px;
+
+  @media (max-width: 1023px) {
+    padding-top: 0;
+  }
 }
 
 .footer__socials-list {
   display: flex;
   flex-wrap: wrap;
   width: 102px;
+
+  @media (max-width: 1023px) {
+    width: 100%;
+  }
 }
 
 .footer__socials-item {
@@ -155,6 +221,11 @@
 
 .footer__socials-item:not(:last-child) {
   margin-right: 15px;
+
+  @media (max-width: 1023px) {
+    max-width: 100%;
+    margin-right: 20px;
+  }
 }
 
 .footer__socials-link {

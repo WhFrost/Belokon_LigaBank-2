@@ -6,6 +6,10 @@
   box-sizing: border-box;
   width: 150px;
   height: 27px;
-  margin-right: 58px;
+  margin-right: 109px;
   padding-bottom: 7px;
+
+  @media (max-width: 1023px) {
+    margin-right: 66px;
+  }
 }

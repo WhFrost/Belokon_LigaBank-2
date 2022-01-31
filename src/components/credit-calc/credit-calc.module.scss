@@ -1,5 +1,9 @@
 .credit-calc {
   margin-bottom: 110px;
+
+  @media (max-width: 1023px) {
+    margin-bottom: 80px;
+  }
 }
 
 .credit-calc__wrapper {
@@ -8,10 +12,20 @@
   column-gap: 70px;
 
   grid-template-columns: 2fr 1fr;
+
+  @media (max-width: 1023px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .credit-calc__calc {
   margin-bottom: 70px;
+
+  @media (max-width: 1023px) {
+    margin-bottom: 45px;
+  }
 }
 
 .credit-calc__title {
@@ -25,6 +39,13 @@
 
   grid-column: span 2;
 
+  @media (max-width: 1023px) {
+    margin-bottom: 45px;
+
+    font-size: 32px;
+    line-height: 45px;
+  }
+
   &--step {
     margin-bottom: 30px;
 
@@ -33,12 +54,23 @@
     line-height: 31px;
     text-align: left;
     font-style: normal;
+
+    @media (max-width: 1023px) {
+      margin-bottom: 25px;
+
+      font-size: 18px;
+      line-height: 25px;
+    }
   }
 }
 .credit-calc__form-wrapper {
   display: flex;
   flex-direction: column;
   max-width: 600px;
+
+  @media (max-width: 1023px) {
+    min-width: 100%;
+  }
 }
 
 .credit-calc__field-wrapper {
@@ -72,7 +104,13 @@
 
   border: 1px solid #1f1e25;
   border-radius: 4px;
-  ;
+
+  @media (max-width: 1023px) {
+    margin-bottom: 8px;
+
+    font-size: 18px;
+    line-height: 25px;
+  }
 
   &--target {
     position: relative;
@@ -109,6 +147,10 @@
   text-align: left;
   color: #707c87;
   font-style: normal;
+
+  @media (max-width: 1023px) {
+    margin-bottom: 25px;
+  }
 }
 
 .credit-calc__checkbox-wrapper {
@@ -126,6 +168,12 @@
   line-height: 22px;
   color: #1f1e25;
   font-style: normal;
+
+  @media (max-width: 1023px) {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .credit-calc__checkbox-label::before {

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import MediaQuery from 'react-responsive';
 import globalStyles from '../app/app.module.scss';
 import styles from './user-nav.module.scss';
 import {connect} from 'react-redux';
@@ -9,6 +10,7 @@ import {
   getLoginStatus,
   getLogin
 } from '../../store/user/selectors';
+import {MIN_WIDTH_DESKTOP} from '../../const';
 
 function UserNav(props) {
   const {
@@ -25,7 +27,7 @@ function UserNav(props) {
   };
 
   return (
-    <ul className={styles['user-nav__list']}>
+    <ul className={`${globalStyles['list']} ${styles['user-nav__list']}`}>
       <li className={styles['user-nav-item']}>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <a
@@ -33,11 +35,13 @@ function UserNav(props) {
           className={`${globalStyles['link']} ${styles['user-nav-item__link']}`}
           onClick={handleLoginClick}
         >
-          {
-            isLogin
-              ? `Добро пожаловать, ${login}`
-              : 'Войти в Интернет-банк'
-          }
+          <MediaQuery minWidth={MIN_WIDTH_DESKTOP}>
+            {
+              isLogin
+                ? `Добро пожаловать, ${login}`
+                : 'Войти в Интернет-банк'
+            }
+          </MediaQuery>
         </a>
       </li>
     </ul>

@@ -15,7 +15,7 @@ function Slider (props) {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveSlideIndex(activeSlideIndex + 1);
-    }, 4000);
+    }, 4000000);
     setActiveSlide(slides[activeSlideIndex]);
     return () => clearInterval(interval);
     // eslint-disable-next-line
